@@ -26,4 +26,6 @@ class Employees::SessionsController < Devise::SessionsController
   # end
 
   include Accessible
+  skip_before_action :check_user, only: :destroy
+  # ...
 end

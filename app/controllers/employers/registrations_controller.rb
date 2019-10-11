@@ -61,4 +61,6 @@ class Employers::RegistrationsController < Devise::RegistrationsController
   # end
 
   include Accessible
+  skip_before_action :check_user, except: [:new, :create]
+  # ...
 end
