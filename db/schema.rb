@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_12_113616) do
+ActiveRecord::Schema.define(version: 2019_10_12_113955) do
 
   create_table "applications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "job_posting_id"
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(version: 2019_10_12_113616) do
     t.string "profile"
     t.index ["email"], name: "index_employers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_employers_on_reset_password_token", unique: true
+  end
+
+  create_table "feedbacks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "job_posting_id"
+    t.integer "employee_id"
+    t.integer "rating"
+    t.text "content"
   end
 
   create_table "homepages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
