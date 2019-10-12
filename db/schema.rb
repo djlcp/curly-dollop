@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_12_112552) do
+ActiveRecord::Schema.define(version: 2019_10_12_113616) do
+
+  create_table "applications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "job_posting_id"
+    t.integer "employee_id"
+  end
 
   create_table "employee_skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "employee_id"
