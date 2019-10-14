@@ -1,2 +1,0 @@
-class Feedbacks < ActiveRecord
-end

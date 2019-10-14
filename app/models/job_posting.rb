@@ -1,0 +1,2 @@
+class JobPostings < ApplicationRecord
+end
