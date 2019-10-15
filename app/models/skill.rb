@@ -1,2 +1,4 @@
-class Skills < ApplicationRecord
+class Skill < ApplicationRecord
+    belongs_to :job_postings, through: :job_postings_skills
+    has_many :employees, through: :employee_skills
 end
