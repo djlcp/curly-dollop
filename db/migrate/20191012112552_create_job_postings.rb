@@ -1,9 +1,11 @@
 class CreateJobPostings < ActiveRecord::Migration[6.0]
   def change
-    add_column :job_postings, :content, :text
-    add_column :job_postings, :start_time, :datetime
-    add_column :job_postings, :end_time, :datetime
-    add_column :job_postings, :hourly_rate, :float
-    add_column :job_postings, :employer_id, :int
+    create_table :job_postings do |t|
+      t.text :content
+      t.datetime :start_time
+      t.datetime :end_time
+      t.float :hourly_rate
+      t.integer :employer_id
+    end
   end
 end
