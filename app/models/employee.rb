@@ -5,7 +5,7 @@ class Employee < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :skills, through: :employee_skills
-  has_many :job_postings, through: :applications
+  has_many :job_postings, through: :job_applications
   has_many :feedbacks
 
 end
