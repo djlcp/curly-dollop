@@ -15,7 +15,7 @@ class ApplicationsController < ApplicationController
   def create
     @application = Application.new(application_params.merge(employee_id: current_employee.id, job_posting_id: current_job_posting.id))
     if @application.save
-      redirect_to application_path(@application)
+      redirect_to applications_path
     else
       render :index
     end
