@@ -9,6 +9,7 @@ class JobPostingsController < ApplicationController
 
   def create
     @job_posting = JobPosting.new(job_posting_params.merge(employer_id: current_employer.id))
+    @job_posting.skills.new
     if @job_posting.save
       redirect_to root_path
     else
@@ -32,6 +33,9 @@ class JobPostingsController < ApplicationController
   private
   
   def job_posting_params
-    params.require(:job_posting).permit(:content, :start_time, :end_time, :hourly_rate)
+    params.require(:job_posting).permit(
+      :content, :start_time, :end_time, :hourly_rate,
+      skills: [:name]
+    )
   end
 end
