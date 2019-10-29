@@ -1,11 +1,9 @@
 class ApplicationsController < ApplicationController
 
   def index
-    @application = Application.new
   end
 
   def show
-    # @application = find_application_id
   end
 
   def new
@@ -13,6 +11,7 @@ class ApplicationsController < ApplicationController
   end
 
   def create
+    # @application = 
     @application = Application.new(application_params.merge(employee_id: current_employee.id, job_posting_id: current_job_posting.id))
     if @application.save
       redirect_to applications_path
