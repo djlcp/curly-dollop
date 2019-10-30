@@ -1,6 +1,6 @@
 class JobPostingsController < ApplicationController
   def index
-    @job_posting = JobPosting.new
+    @job_postings = JobPosting.all
   end
 
   def new
@@ -8,7 +8,8 @@ class JobPostingsController < ApplicationController
   end
 
   def create
-    @job_posting = JobPosting.new(job_posting_params.merge(employer_id: current_employer.id))
+    @job_posting = JobPosting.new(job_posting_params)
+    binding.pry
     @job_posting.skills.new
     if @job_posting.save
       redirect_to root_path
@@ -35,7 +36,7 @@ class JobPostingsController < ApplicationController
   def job_posting_params
     params.require(:job_posting).permit(
       :content, :start_time, :end_time, :hourly_rate,
-      skills: [:name]
-    )
+      skills_attributes: [:name]
+    ).merge(employer_id: current_employer.id)
   end
 end

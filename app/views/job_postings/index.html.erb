@@ -3,3 +3,10 @@
 <p>random job postings whilst not being logged in</p>
 <br>
 
+  <% @job_postings.each do |job| %>
+  <div class='container'>
+  <%= job.content %>
+  <%= job.skills.count%>
+
+  </div>
+  <% end %>

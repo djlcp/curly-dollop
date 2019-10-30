@@ -1,6 +1,6 @@
-<%= form_with(model: job_posting, local: true) do |form| %>
-  <% if job_posting.errors.present? %>
-    <% job_posting.errors.full_messages.each do |error| %>
+<%= form_with(model: @job_posting, local: true) do |form| %>
+  <% if @job_posting.errors.present? %>
+    <% @job_posting.errors.full_messages.each do |error| %>
       <p><%= error %></p> 
     <% end %>
   <% end %>
@@ -27,9 +27,9 @@
   </div>
 
     <div>
-      <% form.fields_for :skill do |builder| %>
-      <%= builder.label :name %>
-      <%= builder.text_field :name %>
+      <%= form.fields_for :skill do |bobbuilder| %>
+        <%= bobbuilder.label :name %>
+        <%= bobbuilder.text_field :name %>
       <% end %>
     </div>
 
