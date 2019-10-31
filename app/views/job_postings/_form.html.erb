@@ -26,12 +26,19 @@
     <%= form.number_field :hourly_rate, step: :any %>
   </div>
 
+  <div id='skills'>
+    <p><strong>Skills</strong></p>
+    <%= form.fields_for :skills do |job| %>
     <div>
-      <%= form.fields_for :skill do |bobbuilder| %>
-        <%= bobbuilder.label :name %>
-        <%= bobbuilder.text_field :name %>
-      <% end %>
+        <%= render 'skill_fields', f: job %>
     </div>
+    <% end %>
+  </div>
+
+  <div class="links">
+    <%= link_to_add_association 'add skill', form, :skills %>
+  </div>
+
 
   <div>
     <%= form.submit :Submit %>
