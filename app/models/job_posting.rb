@@ -3,7 +3,7 @@ class JobPosting < ApplicationRecord
   has_many :skills, through: :job_postings_skills
   belongs_to :employer
   has_many :feedbacks
-  has_many :applications
+  has_many :job_applications
 
   accepts_nested_attributes_for :skills
 
