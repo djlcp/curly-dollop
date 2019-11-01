@@ -11,9 +11,9 @@
           LOG IN
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item"><%= link_to 'Employee', employee_session_path %></a>
+          <%= link_to 'Employee', employee_session_path, class: "dropdown-item" %>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item"><%= link_to 'Employer', employer_session_path %></a>
+          <%= link_to 'Employer', employer_session_path, class: "dropdown-item" %>
         </div>
       </li>
     </ul>
