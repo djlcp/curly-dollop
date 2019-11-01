@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_10_12_113955) do
 
-  create_table "applications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+  create_table "job_applications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "job_posting_id"
     t.integer "employee_id"
   end
