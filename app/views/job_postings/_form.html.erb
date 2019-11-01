@@ -1,0 +1,47 @@
+<%= form_with(model: @job_posting, local: true) do |form| %>
+  <% if @job_posting.errors.present? %>
+    <% @job_posting.errors.full_messages.each do |error| %>
+      <p><%= error %></p> 
+    <% end %>
+  <% end %>
+  
+
+  <div>
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+
+  <div>
+    <%= form.label :start_time %>
+    <%= form.time_field :start_time %>
+  </div>
+
+ <div>
+    <%= form.label :end_time %>
+    <%= form.time_field :end_time %>
+  </div>
+
+ <div>
+    <%= form.label :hourly_rate %>
+    <%= form.number_field :hourly_rate, step: :any %>
+  </div>
+
+  <div id='skills'>
+    <p><strong>Skills</strong></p>
+    <%= form.fields_for :skills do |job| %>
+    <div>
+        <%= render 'skill_fields', f: job %>
+    </div>
+    <% end %>
+  </div>
+
+  <div class="links">
+    <%= link_to_add_association 'add skill', form, :skills %>
+  </div>
+
+
+  <div>
+    <%= form.submit :Submit %>
+  </div>
+
+<% end %>

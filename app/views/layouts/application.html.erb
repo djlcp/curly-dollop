@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>Shiift</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,20 +14,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
 
-  <%= render 'layouts/navbar' %>
 
   <body>
-
-    <% if employer_signed_in? %>
-      <%= render 'employers/employer' %>
-    <% end %>
-
-
-    <% if employee_signed_in? %>
-      <%= render 'employees/employee' %>
-    <% end %>
-
+    <%= render 'layouts/navbar' %>
     <%= yield %>
-
   </body>
 </html>
