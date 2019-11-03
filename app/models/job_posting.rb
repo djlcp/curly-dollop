@@ -5,7 +5,7 @@ class JobPosting < ApplicationRecord
   has_many :feedbacks
   has_many :job_applications
 
-  accepts_nested_attributes_for :skills
+  accepts_nested_attributes_for :skills, allow_destroy: true
 
   validates(:content, presence: true)
 end
