@@ -1,0 +1,9 @@
+<h1>My profile</h1>
+
+<% @employees.each do |f| %>
+<p>Id: <%= f.id %></p>
+  <p>First name: <%= f.first_name %></p>
+  <p>Last name: <%= f.last_name %></p>
+  <p>E-mail: <%= f.email %></p>
+  <p>Phone number: <%= f.phone_number %></p>
+<% end %>
