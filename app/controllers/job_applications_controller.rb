@@ -34,13 +34,6 @@ class JobApplicationsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @job_application.destroy
-  #   respond_to do |destroy|
-  #     destroy.html {redirect_to job_postings_url, notice: 'Application was successfully deleted.'}
-  #   end
-  # end
-
   private
   
   def job_application_params
