@@ -1,1 +1,10 @@
 <strong>side-bar employee<br></strong>
+<br>
+<h1>All Job Applications</h1>
+<br>
+  
+  <% employee.job_postings.each do |job| %>
+  <div class='container'>
+  <%= job.content %>
+  </div>
+  
