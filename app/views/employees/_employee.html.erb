@@ -2,9 +2,13 @@
 <br>
 <h1>All Job Applications</h1>
 <br>
-  
-  <% employee.job_postings.each do |job| %>
+
+<% if employee_signed_in? %>
+  <% current_employee.job_applications.each do |job| %>
   <div class='container'>
-  <%= job.content %>
+    <%= job.content %>
   </div>
-  
+<% elsif %>
+  <%= flash[:notice] = "You must log in to view job applications"%>
+<% end %>
+
