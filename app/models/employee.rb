@@ -8,6 +8,5 @@ class Employee < ApplicationRecord
   has_many :skills, through: :employee_skills
   has_many :job_postings, through: :job_applications
   has_many :feedbacks
-  has_one  :profile
 
 end
