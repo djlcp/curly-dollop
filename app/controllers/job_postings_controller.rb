@@ -1,6 +1,6 @@
 class JobPostingsController < ApplicationController
   def index
-    @job_postings = JobPosting.all
+    @job_postings = current_employer.job_postings.all
   end
 
   def new

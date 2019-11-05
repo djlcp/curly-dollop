@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.or/routing.html
   resources :job_postings
 
-  root 'job_postings#index'
+  root 'landing_pages#index'
 end
