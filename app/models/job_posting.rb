@@ -4,6 +4,7 @@ class JobPosting < ApplicationRecord
   belongs_to :employer
   has_many :feedbacks
   has_many :job_applications
+  has_rich_text :content
 
   accepts_nested_attributes_for :skills
 
