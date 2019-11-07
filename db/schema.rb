@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_11_07_195532) do
-
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -126,6 +125,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_195532) do
     t.datetime "end_time"
     t.float "hourly_rate"
     t.integer "employer_id"
+    t.string "title"
   end
 
   create_table "job_postings_skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
