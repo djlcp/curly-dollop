@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 2019_11_06_060931) do
     t.datetime "end_time"
     t.float "hourly_rate"
     t.integer "employer_id"
+    t.string "title"
   end
 
   create_table "job_postings_skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
