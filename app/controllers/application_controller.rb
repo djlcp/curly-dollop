@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
       # The authenticated root path can be defined in your routes.rb in: devise_scope :user do...
       #redirect_to(authenticated_employee_root_path) && return
     else
-      authenticate_employer!
       authenticate_employee!
     end
   end
