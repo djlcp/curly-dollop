@@ -1,6 +1,11 @@
 class JobPostingsController < ApplicationController
+
   def index
-    @job_postings = current_employer.job_postings
+    @job_postings = if current_employer
+                      current_employer.job_postings
+                    elsif current_employee
+                      current_employee.job_postings
+                    end
   end
 
   def new

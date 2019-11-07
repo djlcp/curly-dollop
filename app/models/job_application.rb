@@ -1,6 +1,6 @@
 class JobApplication < ApplicationRecord
     belongs_to :job_posting
-    belongs_to :employee
+    has_many :employees, through: :job_postings
 
     accepts_nested_attributes_for allow_destroy: true
 

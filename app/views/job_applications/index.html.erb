@@ -3,7 +3,7 @@
 <p>List of Applications</p>
 
 
-<% @job_postings.each do |job| %>
+<% @current_employee.job_postings.each do |job| %>
   <div class='container'>
     <%= job.content %>
     <%= job.skills.count%>
@@ -16,5 +16,5 @@
       <%# <%= job_postings.content %> %>
     <%# </div> %>
   <%# <% else %> %>
-    <%# <%= flash[:notice] = "You must log in to view job applications"%> %>
-  <%# <% end %> %> %>
+    <%# <%= flash[:notice] = "You must log in to view job applications" %> %>
+  <%# <% end %> %>
