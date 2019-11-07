@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :job_postings
   resources :job_applications
   resources :employee_profiles
+  resources :employer_profiles
+  
   get '/job_applications/:id', to: 'job_applications#show'
 
   root 'job_postings#index'
