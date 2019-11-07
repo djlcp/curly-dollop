@@ -1,6 +1,5 @@
 <% @job_postings.each do |job| %>
   <div class='container'>
-    <%= job.content %>
-    <%= job.skills.count%>
+    <%= link_to job.title, job %>
   </div>
 <% end %>
