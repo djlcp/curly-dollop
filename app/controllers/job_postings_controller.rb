@@ -35,7 +35,7 @@ class JobPostingsController < ApplicationController
   
   def job_posting_params
     params.require(:job_posting).permit(
-      :content, :start_time, :end_time, :hourly_rate,
+      :title, :content, :start_time, :end_time, :hourly_rate,
       skills_attributes: [:id, :name, :_destroy]
     ).merge(employer_id: current_employer.id)
   end
