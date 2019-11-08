@@ -1,1 +1,13 @@
-<h1><%= @employer.business_name %></h1>
+<h1>My profile</h1>
+
+  <p>First name: <%= current_employer.first_name %></p>
+  <p>Last name: <%= current_employer.last_name %></p>
+  <p>Business name: <%= current_employer.business_name %></p>
+  <p>E-mail: <%= current_employer.email %></p>
+ 
+
+ <% if current_employer %>
+    <li><%= link_to 'Edit Profile',edit_employer_registration_path %></li>
+  <% else %>
+    <li><%= link_to 'Login', new_employer_session_path %></li>
+<% end %>
