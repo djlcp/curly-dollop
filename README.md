@@ -1,24 +1,15 @@
+
 # README
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+but this is not a normal README
 
-* Ruby version
+#we are using Ruby 2.6.4
 
-* System dependencies
+DB is still work in progress, development team has access to db:diagram
 
-* Configuration
+Shiit - it's an app, wrong THE app connecting hospitality and catering workers with employers to fill extra shifts and provide cover in emergency situation
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Shiit - connecting people
