@@ -5,10 +5,15 @@ Rails.application.routes.draw do
   # eg. http://localhost:3000/employees/sign_in
   # For details on the DSL available within this file, see https://guides.rubyonrails.or/routing.html
   resources :job_postings
+
+  resources :job_applications
+  resources :employee_profiles
+  resources :employer_profiles
   
   authenticated do
     root 'job_postings#index', as: :authenticated
   end
   
   root 'landing_pages#index'
+
 end
