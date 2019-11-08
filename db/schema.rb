@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2019_11_07_195532) do
+
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
@@ -120,11 +121,6 @@ ActiveRecord::Schema.define(version: 2019_11_07_195532) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "job_posting_skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "job_postings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.text "content"
     t.datetime "start_time"
@@ -141,7 +137,7 @@ ActiveRecord::Schema.define(version: 2019_11_07_195532) do
 
   create_table "skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name"
-    t.integer "type"
+    t.integer "role"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
