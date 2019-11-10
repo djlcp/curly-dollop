@@ -5,6 +5,8 @@
   <p>E-mail: <%= @employee.email %></p>
   <p>Phone number: <%= @employee.phone_number %></p>
 
+  <%= image_tag(@employee.image) %>
+
  <% if @employee %>
     <li><%= link_to 'Edit Profile',edit_employee_registration_path %></li>
   <% else %>
