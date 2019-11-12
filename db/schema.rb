@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_12_191958) do
+ActiveRecord::Schema.define(version: 2019_11_12_193705) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_191958) do
     t.string "date_of_birth"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "employee_id"
   end
 
   create_table "employee_skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -125,9 +126,9 @@ ActiveRecord::Schema.define(version: 2019_11_12_191958) do
   create_table "job_applications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.integer "job_posting_id"
     t.integer "employee_id"
+    t.integer "status"
     t.datetime "discarded_at"
     t.index ["discarded_at"], name: "index_job_applications_on_discarded_at"
-    t.integer "status"
   end
 
   create_table "job_posting_skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
