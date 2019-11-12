@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Accessible
     
   #Passing parameters for submitting the form 
 

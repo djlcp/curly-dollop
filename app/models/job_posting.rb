@@ -2,6 +2,7 @@ class JobPosting < ApplicationRecord
   has_many :job_postings_skills
   has_many :skills, through: :job_postings_skills
   belongs_to :employer
+  has_many :employees, through: :job_applications
   has_many :feedbacks
   has_many :job_applications
   has_rich_text :content

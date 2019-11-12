@@ -11,8 +11,12 @@ Rails.application.routes.draw do
   resources :employee_profiles
   resources :employer_profiles
   
-  authenticated do
-    root 'job_postings#index', as: :authenticated
+  authenticated :employee do
+    root 'job_postings#index', as: :employees
+  end
+
+  authenticated :employer do
+    root 'job_postings#index', as: :employers
   end
   
   root 'landing_pages#index'
