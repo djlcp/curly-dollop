@@ -1,6 +1,5 @@
 class JobApplicationsController < ApplicationController
-  include Discard::Model
-
+include Discard::Model
   def index
     @job_applications = JobApplication.all
     @job_postings = JobPosting.all
@@ -14,7 +13,6 @@ class JobApplicationsController < ApplicationController
     @job_posting = JobPosting.find(params[:job_posting_id])
     @job_application = Job_Application.create(job_applications_params)
     if @job_application.save
-      notice: "Application Successful!"
       redirect_to job_applications_path
     else
       render :index

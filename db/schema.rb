@@ -118,8 +118,8 @@ ActiveRecord::Schema.define(version: 2019_11_12_181149) do
     t.integer "job_posting_id"
     t.integer "employee_id"
     t.datetime "discarded_at"
-    t.index ["discarded_at"], name: "index_job_applications_on_discarded_at"
     t.integer "status"
+    t.index ["discarded_at"], name: "index_job_applications_on_discarded_at"
   end
 
   create_table "job_posting_skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
