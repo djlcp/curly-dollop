@@ -1,5 +1,6 @@
 class JobApplicationsController < ApplicationController
-  
+  include Discard::Model
+
   def index
   end
 
@@ -11,7 +12,7 @@ class JobApplicationsController < ApplicationController
     @job_posting = JobPosting.find(params[:job_posting_id])
     @job_application = Job_Application.create(job_applications_params)
     if @job_application.save
-      flash[:success] = "Application successful!"
+      notice: "Application Successful!"
       redirect_to job_applications_path
     else
       render :index
@@ -28,11 +29,19 @@ class JobApplicationsController < ApplicationController
 
   def update
     @job_applications = Job_Application.find(params[:id])
+    @job_applications.undiscard
+      redirect_to job_applications_path, notice: "Job Application Undiscarded"
     if @job_applications.update_attributes(job_application_params)
       redirect_to job_applications_path
     else
       render :edit
     end
+
+    def destroy
+      @job_appplication.discard
+      redirect_to job_applications_path, notice: "Job Application Removed"
+    end
+
   end
 
   private
