@@ -1,0 +1,15 @@
+<div class= 'jumbotron text-center'>
+<h1>My profile</h1>
+<br>
+  <p>First name: <%= @employer.first_name %></p>
+  <p>Last name: <%= @employer.last_name %></p>
+  <p>Business name: <%= @employer.business_name %></p>
+  <p>E-mail: <%= @employer.email %></p>
+ 
+
+ <% if @employer %>
+    <div><%= link_to 'Edit Profile',edit_employer_registration_path, class: 'btn btn-primary' %></div>
+  <% else %>
+    <ul><%= link_to 'Login', new_employer_session_path %></ul>
+<% end %>
+</div>

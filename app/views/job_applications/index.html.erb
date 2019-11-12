@@ -2,11 +2,12 @@
 
 <p>List of Applications</p>
 
+<h1> Applications for your Job Postings</h1>
 
 <% @current_employee.job_postings.each do |job| %>
   <div class='container'>
-    <%= job.content %>
-    <%= job.skills.count%>
+    <p><%= link_to f.content, "/job_applications/#{f.id}" %></p>
+    <span><%= job.skills.count%></span>
   </div>
 <% end %>
 
@@ -18,3 +19,4 @@
   <%# <% else %> %>
     <%# <%= flash[:notice] = "You must log in to view job applications" %> %>
   <%# <% end %> %>
+
