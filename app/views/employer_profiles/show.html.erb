@@ -1,5 +1,6 @@
+<div class= 'jumbotron text-center'>
 <h1>My profile</h1>
-
+<br>
   <p>First name: <%= @employer.first_name %></p>
   <p>Last name: <%= @employer.last_name %></p>
   <p>Business name: <%= @employer.business_name %></p>
@@ -7,7 +8,8 @@
  
 
  <% if @employer %>
-    <li><%= link_to 'Edit Profile',edit_employer_registration_path %></li>
+    <div><%= link_to 'Edit Profile',edit_employer_registration_path, class: 'btn btn-primary' %></div>
   <% else %>
-    <li><%= link_to 'Login', new_employer_session_path %></li>
+    <ul><%= link_to 'Login', new_employer_session_path %></ul>
 <% end %>
+</div>

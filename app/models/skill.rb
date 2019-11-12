@@ -1,5 +1,11 @@
 class Skill < ApplicationRecord
-  enum type: [:language, :slacking]
+
+  enum name: { cooking: "cooking", 
+               waiting: "waiting",
+               drinking: "drinking" }
+
+  #enum type: { language: "language", 
+  #           profession: "proffession" }
 
   has_many :employees_skills
   has_many :employees, through: :employees_skills
