@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2019_11_14_113206) do
     t.string "last_name"
     t.string "avatar"
     t.string "phone_number"
-    t.integer "profession_id"
     t.index ["email"], name: "index_employees_on_email", unique: true
     t.index ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true
   end
