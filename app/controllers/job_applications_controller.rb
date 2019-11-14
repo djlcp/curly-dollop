@@ -1,5 +1,5 @@
 class JobApplicationsController < ApplicationController
-include Discard::Model
+# include Discard::Model
   def index
     @job_applications = JobApplication.all
     @job_postings = JobPosting.all
