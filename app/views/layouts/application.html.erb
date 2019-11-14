@@ -17,6 +17,8 @@
 
   <body>
     <%= render 'layouts/navbar' %>
+    <%= flash.alert %>
+    <%= flash.notice %>
     <%= yield %>
   </body>
   
