@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     elsif current_employee
       flash.clear
       # The authenticated root path can be defined in your routes.rb in: devise_scope :user do...
-      #redirect_to(authenticated_employee_root_path) && return
+      # redirect_to(authenticated_employee_root_path) && return
     else
       authenticate_employee!
     end

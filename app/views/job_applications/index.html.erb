@@ -4,19 +4,15 @@
 
 <h1> Applications for your Job Postings</h1>
 
-<% @current_employee.job_postings.each do |job| %>
-  <div class='container'>
-    <p><%= link_to f.content, "/job_applications/#{f.id}" %></p>
-    <span><%= job.skills.count%></span>
-  </div>
+<% if @job_applications %> 
+
+  <% @job_applications.job_postings.each do |job| %>
+    <div class='container'>
+        <p><%= link_to job.content, "/job_applications/#{job.id}" %></p>
+        <span><%= job.skills.count%></span>
+    </div>
+  <% end %>
+
+<% else %>
+  <p>No applications</p>
 <% end %>
-
-  <%# <% if employee_signed_in? %>
-    <%# <% current_employee.job_applications.each do |job| %> %>
-    <%# <div class='container'> %>
-      <%# <%= job_postings.content %> %>
-    <%# </div> %>
-  <%# <% else %> %>
-    <%# <%= flash[:notice] = "You must log in to view job applications" %> %>
-  <%# <% end %> %>
-
