@@ -1,16 +1,19 @@
-<div class='jumbotron text-center'>
-<h1>Profile</h1>
-<br>
-  <%= image_tag(@employee.image, :size => '150x150') %>
-  <p>First name: <%= @employee.first_name %></p>
-  <p>Last name: <%= @employee.last_name %></p>
-  <p>E-mail: <%= @employee.email %></p>
-  <p>Phone number: <%= @employee.phone_number %></p>
+<p id="notice"><%= notice %></p>
 
+<p>
+  <strong>First name:</strong>
+  <%= @employee_profile.first_name %>
+</p>
 
- <% if @employee %>
-    <p><%= link_to 'Edit Profile',edit_employee_registration_path, class: 'btn btn-primary' %></p>
-  <% else %>
-    <p><%= link_to 'Login', new_employee_session_path, class: 'btn btn-primary' %></p>
-<% end %>
-</div>
+<p>
+  <strong>Last name:</strong>
+  <%= @employee_profile.last_name %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @employee_profile.date_of_birth %>
+</p>
+
+<%= link_to 'Edit', edit_employee_profile_path(@employee_profile) %> |
+<%= link_to 'Back', employee_profiles_path %>
