@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_191958) do
     t.string "date_of_birth"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "employee_id"
   end
 
   create_table "employee_skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -155,7 +156,6 @@ ActiveRecord::Schema.define(version: 2019_11_12_191958) do
     t.string "date_of_birth"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "employee_id"
   end
 
   create_table "skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
