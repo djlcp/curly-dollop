@@ -7,12 +7,12 @@ include Discard::Model
   end
 
   def new
-    @job_applications = Job_Application.new
+    @job_applications = JobApplication.new
   end
 
   def create
     @job_posting = JobPosting.find(params[:job_posting_id])
-    @job_application = Job_Application.create(job_applications_params)
+    @job_application = JobApplication.create(job_applications_params)
     if @job_application.save
       redirect_to job_applications_path
     else
@@ -25,11 +25,11 @@ include Discard::Model
   end
 
   def view
-    @job_applications = Job_Application.find(params[:id])
+    @job_applications = JobApplication.find(params[:id])
   end
 
   def update
-    @job_applications = Job_Application.find(params[:id])
+    @job_applications = JobApplication.find(params[:id])
     @job_applications.undiscard
       redirect_to job_applications_path, notice: "Job Application Undiscarded"
     if @job_applications.update_attributes(job_application_params)
