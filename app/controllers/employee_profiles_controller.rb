@@ -6,6 +6,10 @@ class EmployeeProfilesController < ApplicationController
   def show
   end
 
+  def index
+    @employee_profiles = EmployeeProfile.all
+  end
+
   # GET /employee_profiles/new
   def new
     @employee_profile = current_employee.build_employee_profile
