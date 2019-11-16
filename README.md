@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hope you are ready for a shock!
 
-Things you may want to cover:
+still need to re-implement my work done previously on proffessions
 
-* Ruby version
+employer_profile is missing
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+drop your current database before running this branch
