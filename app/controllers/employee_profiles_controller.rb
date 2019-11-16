@@ -1,12 +1,6 @@
 class EmployeeProfilesController < ApplicationController
   before_action :set_employee_profile, only: [:show, :edit, :update, :destroy]
 
-  # GET /employee_profiles
-  # GET /employee_profiles.json
-  def index
-    @employee_profiles = EmployeeProfile.all
-  end
-
   # GET /employee_profiles/1
   # GET /employee_profiles/1.json
   def show
@@ -69,6 +63,6 @@ class EmployeeProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def employee_profile_params
-      params.require(:employee_profile).permit(:first_name, :last_name, :date_of_birth, :employee_id)
+      params.require(:employee_profile).permit(:first_name, :last_name, :date_of_birth)
     end
 end
