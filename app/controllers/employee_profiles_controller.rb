@@ -8,7 +8,7 @@ class EmployeeProfilesController < ApplicationController
 
   # GET /employee_profiles/new
   def new
-    @employee_profile = EmployeeProfile.new
+    @employee_profile = current_employee.build_employee_profile
   end
 
   # GET /employee_profiles/1/edit
@@ -18,7 +18,7 @@ class EmployeeProfilesController < ApplicationController
   # POST /employee_profiles
   # POST /employee_profiles.json
   def create
-    @employee_profile = EmployeeProfile.new(employee_profile_params)
+    @employee_profile = current_employee.build_employee_profile(employee_profile_params)
 
     respond_to do |format|
       if @employee_profile.save
