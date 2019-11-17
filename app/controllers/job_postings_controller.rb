@@ -2,7 +2,11 @@ class JobPostingsController < ApplicationController
   before_action :find_job_posting, only: [:show, :edit, :update, :destroy]
   
   def index
-    @job_postings = JobPosting.all
+    @job_postings = if current_employer
+                      current_employer.job_postings
+                    elsif current_employee
+                      JobPosting.all
+                    end
   end
 
   def new
