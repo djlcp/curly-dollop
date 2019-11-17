@@ -4,7 +4,6 @@ class Employee < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  belongs_to :profession
   has_many :job_applications
   has_many :job_postings, through: :job_applications
   has_many :feedbacks
