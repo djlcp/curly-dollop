@@ -7,7 +7,6 @@ class EmployeeProfilesController < ApplicationController
   end
 
   def index
-    @employee_profiles = EmployeeProfile.all
   end
 
   # GET /employee_profiles/new
