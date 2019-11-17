@@ -1,4 +1,5 @@
 class JobApplicationsController < ApplicationController
+  
 include Discard::Model
 
   def index
