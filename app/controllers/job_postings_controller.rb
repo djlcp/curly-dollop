@@ -5,10 +5,6 @@ class JobPostingsController < ApplicationController
     @job_postings = JobPosting.all
   end
 
-  def index
-      @job_postings = JobPosting.all
-  end
-
   def new
     @job_posting = JobPosting.new
   end
