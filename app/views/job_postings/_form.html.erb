@@ -9,6 +9,10 @@
     <%= form.label :title %>
     <%= form.text_field :title, class: 'form-control' %>
   </div>
+
+  <div>
+  <%= form.collection_select :profession_id, Profession.all, :id, :name, {prompt: "Choose a profession" } %>
+  </div>
   
   <div>
     <%= form.label :content %>
