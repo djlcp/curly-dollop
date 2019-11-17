@@ -1,6 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <% if @employee_profile.avatar.attached? %>
+    <%= image_tag(@employee_profile.avatar) %>
+  <% end %>
+</p>
+
+<p>
   <strong>Profession:</strong>
   <%= @employee_profile.profession_id %>
 </p>
