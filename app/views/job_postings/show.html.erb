@@ -20,3 +20,9 @@
   <strong>Hourly Rate:</strong>
   <%= @job_posting.hourly_rate %>
 </p>
+
+<p>
+<strong>Apply:</strong>
+<%= link_to 'Apply', new_job_application_path, :method => :create, :confirm => "Are you sure?" %>
+
+</p>
