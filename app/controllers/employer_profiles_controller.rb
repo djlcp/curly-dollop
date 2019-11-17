@@ -21,7 +21,7 @@ class EmployerProfilesController < ApplicationController
   # POST /employer_profiles
   # POST /employer_profiles.json
   def create
-    @employer_profile = current_employee.build_employer_profile(employer_profile_params)
+    @employer_profile = current_employer.build_employer_profile(employer_profile_params)
 
     respond_to do |format|
       if @employer_profile.save
