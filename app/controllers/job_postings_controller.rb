@@ -19,7 +19,7 @@ class JobPostingsController < ApplicationController
     if @job_posting.save
       redirect_to @job_posting
     else
-      render "New"
+      render :new
     end
   end
 
@@ -31,7 +31,7 @@ class JobPostingsController < ApplicationController
     if @job_posting.update(job_postings_params)
       redirect_to @job_posting
     else
-      render "Edit"
+      render :edit
     end
   end
 
