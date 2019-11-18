@@ -9,7 +9,6 @@
   <% @job_applications.job_postings.each do |job| %>
     <div class='container'>
         <p><%= link_to job.content, "/job_applications/#{job.id}" %></p>
-        <span><%= job.skills.count%></span>
     </div>
   <% end %>
 

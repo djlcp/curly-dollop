@@ -1,10 +1,10 @@
-<%= form_with(model: profile, local: true) do |form| %>
-  <% if profile.errors.any? %>
+<%= form_with(model: employer_profile, local: true) do |form| %>
+  <% if employer_profile.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+      <h2><%= pluralize(employer_profile.errors.count, "error") %> prohibited this employer_profile from being saved:</h2>
 
       <ul>
-        <% profile.errors.full_messages.each do |message| %>
+        <% employer_profile.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
@@ -22,8 +22,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :date_of_birth %>
-    <%= form.text_field :date_of_birth %>
+    <%= form.label :business_name %>
+    <%= form.text_field :business_name %>
   </div>
 
   <div class="actions">

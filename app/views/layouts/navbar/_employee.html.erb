@@ -7,14 +7,12 @@
     <ul class="navbar-nav mr-auto">
 
       <li class="nav-item active">
-        <%= link_to 'Profile', employee_profile_path(current_employee.id), class: "nav-link" %>
+        <% if current_employee.employee_profile == nil %>
+          <%= link_to 'Create Profile', new_employee_profile_path, class: "nav-link" %>
+        <% else %>
+          <%= link_to 'View your profile', current_employee.employee_profile, class: "nav-link" %>
+        <% end %>
       </li>
-
-      <% if current_employee.employee_profile == nil %>
-        <li><%= link_to 'Create Profile', new_employee_profile_path %></li>
-      <% else %>
-        <li><%= link_to 'View your profile', current_employee.employee_profile %></li>
-      <% end %>
 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
