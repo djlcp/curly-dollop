@@ -11,7 +11,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def create
-    @job_posting = JobPosting.find(params[:job_postings_id])
+    @job_postings = JobPosting.find(params[:job_postings_id])
     @job_application = JobApplication.new(job_applications_params)
     if @job_application.save
       redirect_to job_applications_path, notice: "Job Application Complete"

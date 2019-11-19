@@ -9,6 +9,7 @@
   <% @job_applications.job_postings.each do |job| %>
     <div class='container'>
         <p><%= link_to job.content, "/job_applications/#{job.id}" %></p>
+        <%= link_to 'Delete', job_applications_path, :method => :destroy, :confirm => "Are you sure?" %>
     </div>
   <% end %>
 
