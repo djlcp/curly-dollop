@@ -1,5 +1,5 @@
 class JobApplicationsController < ApplicationController
-  # include Discard::Model
+  # before_action :find_job_application, only: [:show, :create, :edit, :update, :destroy]
 
   def index
     @job_applications = JobApplication.all
@@ -7,32 +7,27 @@ class JobApplicationsController < ApplicationController
   end
 
   def new
-    @job_applications = JobApplication.new
+    @job_application = JobApplication.new
   end
 
   def create
-    @job_postings = JobPosting.find(params[:job_postings_id])
     @job_application = JobApplication.new(job_applications_params)
     if @job_application.save
-      redirect_to job_applications_path, notice: "Job Application Complete"
+      redirect_to @job_application, notice: "Job Application Complete"
     else
-      render :index
+      render :new
     end
   end
 
   def show
-    @job_posting = JobPosting.find(params[:id])
   end
 
-  def view
-    @job_applications = JobApplication.find(params[:id])
-  end
 
   def update
     @job_applications = JobApplication.find(params[:id])
     @job_applications.undiscard
       redirect_to job_applications_path, notice: "Job Application Undiscarded"
-    if @job_applications.update_attributes(job_application_params)
+    if @job_applications.update_attributes(job_applications_params)
       redirect_to job_applications_path
     else
       render :edit
@@ -46,8 +41,12 @@ class JobApplicationsController < ApplicationController
 
   private
 
-  def job_application_params
-    params.require(:status, :job_posting, :job_application).permit(:status, :job_posting_id, :employee_id)
-    # .merge(employee_id: current_employee.id, job_posting_id: current_job_posting.id))
+  def job_applications_params
+    parmas.require(:job_application).permit(:status, :job_posting_id, :employee_id)
+    # params.require(:job_application).permit(:status, :job_posting_id, :employee_id)
   end
+
+  # def find_job_application
+  #   @job_application = JobApplication.find(params[:id])
+  # end
 end

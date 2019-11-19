@@ -5,10 +5,6 @@ class JobPostingsController < ApplicationController
     @job_postings = JobPosting.all
   end
 
-  def index
-      @job_postings = JobPosting.all
-  end
-
   def new
     @job_posting = JobPosting.new
   end
@@ -25,7 +21,6 @@ class JobPostingsController < ApplicationController
 
   def show
   end
-
 
   def update
     if @job_posting.update(job_postings_params)

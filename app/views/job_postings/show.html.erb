@@ -23,6 +23,9 @@
 
 <p>
 <strong>Apply:</strong>
-<%= link_to 'Apply', job_applications_path, :method => :create, :confirm => "Are you sure?" %>
+<%= form_with(model: JobApplication.new, url: job_posting_job_applications_path(@job_posting), local: true) do |form| %>
+  <%= form.submit 'Apply' %>
+<% end %>
+
 
 </p>
