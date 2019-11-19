@@ -1,6 +1,5 @@
 class JobApplicationsController < ApplicationController
-  
-include Discard::Model
+  # include Discard::Model
 
   def index
     @job_applications = JobApplication.all
@@ -12,10 +11,10 @@ include Discard::Model
   end
 
   def create
-    @job_posting = JobPosting.find(params[:job_posting_id])
-    @job_application = JobApplication.create(job_applications_params)
+    job_posting = JobPosting.find(params[:job_postings_id])
+    @job_application = JobApplication.new(job_applications_params)
     if @job_application.save
-      redirect_to job_applications_path
+      redirect_to job_applications_path, notice: "Job Application Complete"
     else
       render :index
     end
@@ -38,18 +37,17 @@ include Discard::Model
     else
       render :edit
     end
-
-    def destroy
-      @job_appplication.discard
-      redirect_to job_applications_path, notice: "Job Application Removed"
-    end
-
+  end
+  
+  def destroy
+    @job_appplication.discard
+    redirect_to job_applications_path, notice: "Job Application Removed"
   end
 
   private
 
   def job_application_params
-    params.require(:job_posting, :job_application).permit(:status, :job_posting_id, :employee_id)
+    params.require(:status, :job_posting, :job_application).permit(:status, :job_posting_id, :employee_id)
     # .merge(employee_id: current_employee.id, job_posting_id: current_job_posting.id))
   end
 end
