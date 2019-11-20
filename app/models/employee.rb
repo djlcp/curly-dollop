@@ -9,4 +9,12 @@ class Employee < ApplicationRecord
   has_many :feedbacks
   has_one :employee_profile, dependent: :destroy
 
+  after_create :create_initial_employee_profile
+
+  def create_initial_employee_profile
+    return if self.employee_profile.present?
+
+    self.create_employee_profile
+  end
+
 end
