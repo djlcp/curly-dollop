@@ -2,9 +2,9 @@
 
 <p>
   <% if @employee_profile.avatar.attached? %>
-    <%= image_tag(@employee_profile.avatar, :size => "150x150") %>
+    <%= image_tag(@employee_profile.avatar, :class => "style_image")  %>
   <% else %>
-    <%= image_tag('default.jpg', :size => "150x150") %>
+    <%= image_tag('default.jpg', :class => "style_image") %>
   <% end %>
 </p>
 
