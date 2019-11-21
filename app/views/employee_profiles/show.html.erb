@@ -2,7 +2,10 @@
 
 <div>
   <% if @employee_profile.avatar.attached? %>
-    <%= image_tag(@employee_profile.avatar, :class => "rounded-circle", :size => "240x240") %>
+
+    <%= image_tag(@employee_profile.avatar, :class => "style_image")  %>
+  <% else %>
+    <%= image_tag('default.jpg', :class => "style_image") %>
   <% end %>
 </div>
 
