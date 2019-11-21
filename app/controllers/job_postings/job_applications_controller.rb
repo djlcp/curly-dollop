@@ -12,11 +12,6 @@ module JobPostings
       end
     end
 
-    def destroy
-      @job_application.destroy
-      redirect_to root_path notice: "Job Application Removed"
-    end
-
     private
 
     def set_job_posting

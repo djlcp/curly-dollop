@@ -3,13 +3,13 @@ class JobApplicationsController < ApplicationController
   before_action :check_user
 
   def index
-    # @job_applications = JobApplication.all
+    @job_applications = JobApplication.all
 
-    @job_applications = if current_employee
-      job_applications.current_employee
-                        elsif current_employer
-                          JobApplication.all
-                        end
+    # @job_applications = if current_employee
+    #   job_applications.current_employee
+    #                     elsif current_employer
+    #                       JobApplication.all
+    #                     end
   end
 
   def new
@@ -32,10 +32,11 @@ class JobApplicationsController < ApplicationController
   end
 
   def destroy
-    @job_application.destroy
+    @job_applications = JobApplication.find(params[:id])
+    @job_applications.destroy
     redirect_to root_path notice: "Job Application Removed"
   end
-  
+
   private
 
   def job_applications_params
