@@ -3,7 +3,13 @@ class JobApplicationsController < ApplicationController
   before_action :check_user
 
   def index
-    @job_applications = JobApplication.all
+    # @job_applications = JobApplication.all
+
+    @job_applications = if current_employee
+      job_applications.current_employee
+                        elsif current_employer
+                          JobApplication.all
+                        end
   end
 
   def new
@@ -25,10 +31,16 @@ class JobApplicationsController < ApplicationController
     end
   end
 
+  def destroy
+    @job_application.destroy
+    redirect_to root_path notice: "Job Application Removed"
+  end
+  
   private
 
   def job_applications_params
     params.permit(:status, :job_posting_id, :employee_id)
+    # .merge(employee_id: current_employee.id)
   end
 
   # def find_job_application
