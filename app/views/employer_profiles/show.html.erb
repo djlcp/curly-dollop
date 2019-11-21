@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <% if @employer_profile.avatar.attached? %>
+    <%= image_tag(@employer_profile.avatar, :class => "style_image")  %>
+  <% else %>
+    <%= image_tag('default.jpg', :class => "style_image") %>
+  <% end %>
+</p>
+
+<p>
   <strong>First name:</strong>
   <%= @employer_profile.first_name %>
 </p>
