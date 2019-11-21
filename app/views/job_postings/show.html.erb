@@ -22,10 +22,8 @@
 </p>
 
 <p>
-<strong>Apply:</strong>
-<%= form_with(model: JobApplication.new, url: job_posting_job_applications_path(@job_posting), local: true) do |form| %>
-  <%= form.submit 'Apply' %>
-<% end %>
-
-
+  <strong>Apply:</strong>
+  <%= form_with(model: JobApplication.new, url: job_posting_job_applications_path(@job_posting), local: true) do |form| %>
+    <%= form.submit 'Apply', :confirm => "Are you sure?"%>
+  <% end %>
 </p>
