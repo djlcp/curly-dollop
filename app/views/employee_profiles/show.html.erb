@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div>
   <% if @employee_profile.avatar.attached? %>
-    <%= image_tag(@employee_profile.avatar) %>
+    <%= image_tag(@employee_profile.avatar, :class => "rounded-circle", :size => "240x240") %>
   <% end %>
-</p>
+</div>
 
 <p>
   <strong>Profession:</strong>
-  <%= @employee_profile.profession_id %>
+  <%= @employee_profile.profession.name %>
 </p>
 
 <p>
