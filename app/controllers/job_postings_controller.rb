@@ -2,7 +2,12 @@ class JobPostingsController < ApplicationController
   before_action :find_job_posting, only: [:show, :edit, :update, :destroy]
   
   def index
-    @job_postings = JobPosting.all
+    # @job_postings = JobPosting.all
+    @job_postings = if current_employer
+                      current_employer.job_postings
+                    elsif current_employee
+                      JobPosting.all
+                    end
   end
 
   def new
@@ -15,7 +20,7 @@ class JobPostingsController < ApplicationController
     if @job_posting.save
       redirect_to @job_posting
     else
-      render "New"
+      render :new
     end
   end
 
@@ -26,7 +31,7 @@ class JobPostingsController < ApplicationController
     if @job_posting.update(job_postings_params)
       redirect_to @job_posting
     else
-      render "Edit"
+      render :edit
     end
   end
 
@@ -39,7 +44,7 @@ class JobPostingsController < ApplicationController
   
   def job_postings_params
     params.require(:job_posting).permit(
-      :content, :start_time, :end_time, :hourly_rate, :profession_id
+      :title, :content, :start_time, :end_time, :hourly_rate, :profession_id
     ).merge(employer_id: current_employer.id)
   end
 
