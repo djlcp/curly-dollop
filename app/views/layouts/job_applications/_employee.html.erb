@@ -2,8 +2,8 @@
   <div class='container'>
     <%= 'Opening for '%>
     <strong> <%= link_to post.job_posting.title %> </strong>
-    <%= 'at '%>
-    <strong> <%= post.job_posting.title %> </strong>
+    <%= 'at #'%>
+    <strong> <%= post.employee_id %> </strong> #to be amended to show employer business name
     <%= 'starting at: '%>
     <%= post.job_posting.start_time%>
     <%= link_to 'Delete', post, method: :delete, data: {confirm: 'Are you sure?'} %>
