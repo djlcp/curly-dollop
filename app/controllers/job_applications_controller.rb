@@ -43,7 +43,7 @@ class JobApplicationsController < ApplicationController
   private
 
   def job_applications_params
-    params.permit(:status, :job_posting_id, :employee_id)
+    params.permit(:status, :job_posting_id, :employee_id, :employer_id)
     # .merge(employee_id: current_employee.id)
   end
 

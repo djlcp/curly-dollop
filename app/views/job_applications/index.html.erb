@@ -2,11 +2,11 @@
 
 <p>List of Applications</p>
 
-<h1> Applications for your Job Postings</h1>
 
-<% @job_applications.each do |post|%>
-  <div class='container'>
-    <%= link_to post.job_posting.title %>
-    <%= link_to 'Delete', post, method: :delete, data: {confirm: 'Are you sure?'} %>
-  </div>
+<% if employer_signed_in? %>
+    <%= render 'layouts/job_applications/employer'%>
+<% else employee_signed_in? %>
+    <%= render 'layouts/job_applications/employee'%>
 <% end %>
+
+
