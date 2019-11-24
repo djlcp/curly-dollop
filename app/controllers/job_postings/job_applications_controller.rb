@@ -13,6 +13,7 @@ module JobPostings
     end
 
     def show
+      @job_posting = JobPosting.all
     end
 
     private

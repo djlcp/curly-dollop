@@ -17,7 +17,10 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
+    # @employee_profile = EmployeeProfile.last.profession_id
     @job_applications = JobApplication.find(params[:id])
+    @job_posting = JobPosting.all
+
     # redirect_to job_posting_job_applications_path
     # @job_applications = @job_posting_job_applications.find(employee: current_employee, status: :applied)
   end

@@ -68,4 +68,10 @@ class EmployeeProfilesController < ApplicationController
     def employee_profile_params
       params.require(:employee_profile).permit(:profession_id, :first_name, :last_name, :date_of_birth, :avatar)
     end
+
+    def already_applied?
+      JobApplication.where(employee_id: current_employee.id, job_posting_id:
+      params[:job_posting_id]).exists?
+    end
+
 end
