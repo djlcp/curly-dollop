@@ -1,5 +1,5 @@
 class JobApplicationsController < ApplicationController
-  # before_action :find_job_application, only: [:show, :create, :edit, :update, :destroy]
+  before_action :find_job_application, only: [:show, :create, :edit, :update, :destroy]
   before_action :check_user
 
   def index
@@ -17,6 +17,9 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
+    @job_applications = JobApplication.find(params[:id])
+    # redirect_to job_posting_job_applications_path
+    # @job_applications = @job_posting_job_applications.find(employee: current_employee, status: :applied)
   end
 
 
@@ -44,7 +47,7 @@ class JobApplicationsController < ApplicationController
     # .merge(employee_id: current_employee.id)
   end
 
-  # def find_job_application
-  #   @job_application = JobApplication.find(params[:id])
-  # end
+  def find_job_application
+    @job_application = JobApplication.find(params[:id])
+  end
 end

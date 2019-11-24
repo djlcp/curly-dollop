@@ -12,6 +12,9 @@ module JobPostings
       end
     end
 
+    def show
+    end
+
     private
 
     def set_job_posting
