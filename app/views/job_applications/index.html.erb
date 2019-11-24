@@ -6,7 +6,7 @@
 
 <% @job_applications.each do |post|%>
   <div class='container'>
-    <%= link_to post.job_posting.title  %>
+    <%= link_to post.job_posting.title %>
     <%= link_to 'Delete', post, method: :delete, data: {confirm: 'Are you sure?'} %>
   </div>
 <% end %>
