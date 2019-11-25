@@ -1,6 +1,6 @@
 class EmployeeProfile < ApplicationRecord
   belongs_to :employee
-  has_one :profession
+  belongs_to :profession
 
   has_one_attached :avatar
 end
