@@ -7,6 +7,5 @@
     <strong> <%= post.job_posting.employer.employer_profile.business_name %> </strong>
     <%= 'starting at: '%>
     <%= post.job_posting.start_time.strftime("%d %b %Y at %H:%m") %>
-    <%= link_to 'Delete', post, method: :delete, data: {confirm: 'Are you sure?'} %>
   </div>
 <% end %>

@@ -1,7 +1,7 @@
 <% @current_employee.job_applications.each do |post|%>
   <div class='container'>
     <%= 'Opening for '%>
-    <strong> <%= link_to post.job_posting.title %> </strong>
+    <strong> <%= link_to post.job_posting.title, post %> </strong>
     <%= 'at #'%>
     <strong> <%= post.job_posting.employer.employer_profile.business_name%> </strong>
     <%= 'starting at: '%>

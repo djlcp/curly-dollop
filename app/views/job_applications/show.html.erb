@@ -1,6 +1,7 @@
 
-
-<%= @job_posting.last.title%>
-
-<%# if employee_profile.profession_id == job_posting.profession_id
-employeeprofile.name %>
+<% if current_employer %>
+  <% @job_posting.each do |show| %>
+  <%= show.title %>
+  <%# <% show.job_applications.employee.first_name%>
+  <% end %>
+<% end %>
