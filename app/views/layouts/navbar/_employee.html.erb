@@ -10,8 +10,12 @@
         <% if current_employee.employee_profile == nil %>
           <%= link_to 'Create Profile', new_employee_profile_path, class: "nav-link" %>
         <% else %>
-          <%= link_to 'View your profile', current_employee.employee_profile, class: "nav-link" %>
+          <%= link_to 'Profile', current_employee.employee_profile, class: "nav-link" %>
         <% end %>
+      </li>
+
+      <li class="nav-item active">
+        <%= link_to 'Applications', job_applications_path, class: "nav-link" %>
       </li>
 
       <li class="nav-item dropdown">
