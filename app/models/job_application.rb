@@ -3,7 +3,7 @@ class JobApplication < ApplicationRecord
     # has_many :employees, through: :job_postings
     belongs_to :employee
 
-    enum status: %i[accepted rejected]
+    enum status: %i[accepted rejected applied]
 
     # accepts_nested_attributes_for :job_posting, allow_destroy: true
     # accepts_nested_attributes_for :skills, allow_destroy: true

@@ -1,54 +1,56 @@
 class JobApplicationsController < ApplicationController
-include Discard::Model
+  before_action :find_job_application, only: [:show, :create, :edit, :update, :destroy]
+  before_action :check_user
 
   def index
     @job_applications = JobApplication.all
-    @job_postings = JobPosting.all
+
+    # @job_applications = if current_employee
+    #   job_applications.current_employee
+    #                     elsif current_employer
+    #                       JobApplication.all
+    #                     end
   end
 
   def new
-    @job_applications = JobApplication.new
-  end
-
-  def create
-    @job_posting = JobPosting.find(params[:job_posting_id])
-    @job_application = JobApplication.create(job_applications_params)
-    if @job_application.save
-      redirect_to job_applications_path
-    else
-      render :index
-    end
+    @job_application = JobApplication.new
   end
 
   def show
-    @job_posting = JobPosting.find(params[:id])
+    # @employee_profile = EmployeeProfile.last.profession_id
+    @job_applications = JobApplication.find(params[:id])
+    @job_posting = JobPosting.all
+
+    # redirect_to job_posting_job_applications_path
+    # @job_applications = @job_posting_job_applications.find(employee: current_employee, status: :applied)
   end
 
-  def view
-    @job_applications = JobApplication.find(params[:id])
-  end
 
   def update
     @job_applications = JobApplication.find(params[:id])
     @job_applications.undiscard
       redirect_to job_applications_path, notice: "Job Application Undiscarded"
-    if @job_applications.update_attributes(job_application_params)
+    if @job_applications.update_attributes(job_applications_params)
       redirect_to job_applications_path
     else
       render :edit
     end
+  end
 
-    def destroy
-      @job_appplication.discard
-      redirect_to job_applications_path, notice: "Job Application Removed"
-    end
-
+  def destroy
+    @job_applications = JobApplication.find(params[:id])
+    @job_applications.destroy
+    redirect_to root_path data: "Job Application Removed"
   end
 
   private
 
-  def job_application_params
-    params.require(:job_posting, :job_application).permit(:status, :job_posting_id, :employee_id)
-    # .merge(employee_id: current_employee.id, job_posting_id: current_job_posting.id))
+  def job_applications_params
+    params.permit(:status, :job_posting_id, :employee_id, :employer_id)
+    # .merge(employee_id: current_employee.id)
+  end
+
+  def find_job_application
+    @job_application = JobApplication.find(params[:id])
   end
 end

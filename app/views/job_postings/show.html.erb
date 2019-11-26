@@ -1,6 +1,11 @@
 <p>
   <strong>Profession:</strong>
-  <%= @job_posting.profession_id %>
+  <%= @job_posting.profession.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @job_posting.title %>
 </p>
 
 <p>
@@ -19,4 +24,12 @@
 <p>
   <strong>Hourly Rate:</strong>
   <%= @job_posting.hourly_rate %>
+</p>
+
+<p>
+<% if current_employee %>
+  <%= form_with(model: JobApplication.new, url: job_posting_job_applications_path(@job_posting), local: true) do |form| %>
+  <%= form.submit 'Apply', data: {confirm: 'Please confirm your application by clicking OK:'} %>
+  <% end %> 
+<% end %>
 </p>
