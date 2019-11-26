@@ -7,4 +7,5 @@ class EmployeeMailer < ApplicationMailer
     mail( :to => @employee.email,
     :subject => 'Thanks for signing up for Shiift' )
   end
+
 end

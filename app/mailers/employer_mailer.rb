@@ -7,4 +7,14 @@ class EmployerMailer < ApplicationMailer
     mail( :to => @employer.email,
     :subject => 'Thanks for signing up for Shiift' )
   end
+
+  def job_application_email(employer, job_application)
+    @employer = employer
+    @job_application = job_application
+
+    mail(
+      :to => @employer.email,
+      :subject => 'New job application!' 
+    )      
+  end
 end
