@@ -15,10 +15,10 @@
 
 <p>
   <strong>Start Time:</strong>
-  <%= @job_posting.start_time %>
+  <%= @job_posting.start_time.strftime("%d %b %Y at %H:%m") %>
   <br>
   <strong>End Time:</strong>
-  <%= @job_posting.end_time %>
+  <%= @job_posting.end_time.strftime("%d %b %Y at %H:%m")%>
 </p>
 
 <p>
@@ -29,7 +29,7 @@
 <p>
 <% if current_employee %>
   <%= form_with(model: JobApplication.new, url: job_posting_job_applications_path(@job_posting), local: true) do |form| %>
-  <%= form.submit 'Apply', data: {confirm: 'Please confirm your application by clicking OK:'} %>
+    <%= form.submit 'Apply', data: {confirm: 'Please confirm your application by clicking OK:'} %>
   <% end %> 
 <% end %>
 </p>

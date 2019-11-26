@@ -3,9 +3,9 @@
     <%= 'Opening for '%>
     <strong> <%= link_to post.job_posting.title %> </strong>
     <%= 'at #'%>
-    <strong> <%= post.employee_id %> </strong> #to be amended to show employer business name
+    <strong> <%= post.job_posting.employer.employer_profile.business_name%> </strong>
     <%= 'starting at: '%>
-    <%= post.job_posting.start_time.strftime("%d %b   %Y at %H:%m") %>
+    <%= post.job_posting.start_time.strftime("%d %b %Y at %H:%m") %>
     <%= link_to 'Cancel Application', post, method: :delete, data: {confirm: 'Are you sure?'} %>
   </div>
 <% end %>
