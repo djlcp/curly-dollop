@@ -6,7 +6,7 @@ module JobPostings
     def create
       @job_application = @job_posting.job_applications.new(employee: current_employee, status: :applied)
       if already_applied?
-        flash[:notice] = "You can't apply more than once"
+        flash[:error] = "You can't apply more than once"
       else @job_application.save
         redirect_to @job_posting, data: {confirm: 'Job Application was successful.'}
       end

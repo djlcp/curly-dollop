@@ -1,5 +1,15 @@
-<% @job_postings.each do |job| %>
+<% if current_employee %>
+  <% current_employee.employee_profile.profession.job_postings.each do |job| %>
   <div class='container'>
     <%= link_to job.title, job %>
+    <%= job.employer_id %>
   </div>
+  <% end %>
+<% else %>
+  <% @job_postings.each do |job| %>
+    <div class='container'>
+      <%= link_to job.title, job %>
+      <%= job.employer_id %>
+    </div>
+  <% end %>
 <% end %>
