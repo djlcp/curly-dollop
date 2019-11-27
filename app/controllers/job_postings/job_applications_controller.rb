@@ -8,6 +8,7 @@ module JobPostings
       if already_applied?
         flash[:error] = "You can't apply more than once"
       else @job_application.save
+        EmployerMailer.job_application_email(@job_posting.employer, @job_application).deliver
         redirect_to @job_posting, data: {confirm: 'Job Application was successful.'}
       end
     end
