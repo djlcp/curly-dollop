@@ -13,6 +13,7 @@ module JobPostings
     end
 
     def show
+      @job_applications = JobApplication.find(params[:id])
       @job_posting = JobPosting.all
     end
 

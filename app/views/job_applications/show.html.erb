@@ -1,7 +1,8 @@
 
-<% if current_employer %>
+<% if current_employer.job_postings %>
   <% @job_posting.each do |show| %>
-  <%= show.title %>
-  <%# <% show.job_applications.employee.first_name%>
+    <div class='container'>
+    <%= show.job_applications.employee.employee_profile.first_name %>
+    </div>
   <% end %>
 <% end %>

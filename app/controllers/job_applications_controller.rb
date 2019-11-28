@@ -49,4 +49,9 @@ class JobApplicationsController < ApplicationController
   def find_job_application
     @job_application = JobApplication.find(params[:id])
   end
+
+  def set_job_posting
+    @job_posting = JobPosting.find(params[:job_posting_id])
+  end
+
 end
