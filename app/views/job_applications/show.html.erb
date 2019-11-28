@@ -1,8 +1,9 @@
-
-<% if current_employer.job_postings %>
+test - placeholder
+<% if current_employer %>
   <% @job_posting.each do |show| %>
     <div class='container'>
-    <%= show.job_applications.employee.employee_profile.first_name %>
+      <%= show.title %>
     </div>
   <% end %>
 <% end %>
+
