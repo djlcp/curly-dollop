@@ -5,9 +5,12 @@ class Employees::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    # Override Devise default behaviour and create a profile as well
+    super || build_resource({})
+    resource.build_employee_profile
+    respond_with self.resource
+  end
 
   # POST /resource
   # def create
