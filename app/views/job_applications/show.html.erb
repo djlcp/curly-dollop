@@ -1,9 +1,13 @@
-test - placeholder
-<% if current_employer %>
-  <% @job_posting.each do |show| %>
-    <div class='container'>
-      <%= show.title %>
-    </div>
-  <% end %>
-<% end %>
+<br>HELLO
+<%# This page only shows for employees when they select job from job_applications/_employee page %>
 
+<body>
+  <% if current_employee %>
+    <% current_employee.employee_profile.profession.job_postings.each do |job| %>
+    <div class='container'>
+      <%= link_to job.title, job %>
+      <%= job.employer.employer_profile.business_name %>
+    </div>
+    <% end %>
+  <% end %>
+</body>

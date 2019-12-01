@@ -8,12 +8,12 @@ module JobPostings
       if already_applied?
         flash[:error] = "You can't apply more than once"
       else @job_application.save
-        redirect_to @job_posting, data: {confirm: 'Job Application was successful.'}
+        redirect_to root_path, notice: 'Job Application was successful.'
       end
     end
 
     def show
-      @job_applications = JobApplication.find(params[:id])
+      @job_application = JobApplication.all
       @job_posting = JobPosting.all
     end
 

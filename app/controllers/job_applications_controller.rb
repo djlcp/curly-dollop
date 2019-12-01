@@ -21,13 +21,12 @@ class JobApplicationsController < ApplicationController
     @job_posting = JobPosting.all
   end
 
-
   def update
     @job_applications = JobApplication.find(params[:id])
     @job_applications.undiscard
-      redirect_to job_applications_path, notice: "Job Application Undiscarded"
+      redirect_to job_applications_path, notice: 'Job Application Undiscarded'
     if @job_applications.update_attributes(job_applications_params)
-      redirect_to job_applications_path
+      redirect_to root_path
     else
       render :edit
     end
@@ -36,7 +35,7 @@ class JobApplicationsController < ApplicationController
   def destroy
     @job_applications = JobApplication.find(params[:id])
     @job_applications.destroy
-    redirect_to root_path data: "Job Application Removed"
+    redirect_to root_path, notice: 'Job Application Removed'
   end
 
   private
