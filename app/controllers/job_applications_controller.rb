@@ -4,12 +4,6 @@ class JobApplicationsController < ApplicationController
 
   def index
     @job_applications = JobApplication.all
-
-    # @job_applications = if current_employee
-    #   job_applications.current_employee
-    #                     elsif current_employer
-    #                       JobApplication.all
-    #                     end
   end
 
   def new
@@ -47,10 +41,6 @@ class JobApplicationsController < ApplicationController
 
   def find_job_application
     @job_application = JobApplication.find(params[:id])
-  end
-
-  def set_job_posting
-    @job_posting = JobPosting.find(params[:job_posting_id])
   end
 
 end
