@@ -9,5 +9,12 @@ class Employee < ApplicationRecord
   has_many :job_applications
   has_many :job_postings, through: :job_applications
   has_many :feedbacks
+
+
+
+def employee_profile
+  super || build_employee_profile
+end 
+
   
 end
