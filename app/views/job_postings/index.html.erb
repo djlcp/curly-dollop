@@ -2,14 +2,14 @@
   <% current_employee.employee_profile.profession.job_postings.each do |job| %>
   <div class='container'>
     <%= link_to job.title, job %>
-    <%= job.employer_id %>
+    <%= job.employer.employer_profile.business_name %>
   </div>
   <% end %>
 <% else %>
   <% @job_postings.each do |job| %>
     <div class='container'>
       <%= link_to job.title, job %>
-      <%= job.employer_id %>
+      <%= job.employer.employer_profile.business_name %>
     </div>
   <% end %>
 <% end %>
