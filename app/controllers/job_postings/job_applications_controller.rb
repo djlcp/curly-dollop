@@ -11,6 +11,7 @@ module JobPostings
       else 
         @job_application.save
         redirect_to root_path, notice: 'Job Application was successful.'
+
       end
     end
 

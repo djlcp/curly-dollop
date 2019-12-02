@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<div>
   <% if @employee_profile.avatar.attached? %>
+
     <%= image_tag(@employee_profile.avatar, :class => "style_image")  %>
   <% else %>
     <%= image_tag('default.jpg', :class => "style_image") %>
   <% end %>
-</p>
+</div>
 
 <p>
   <strong>Profession:</strong>
