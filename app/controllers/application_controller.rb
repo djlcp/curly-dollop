@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   
   def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up) { |u|
-        u.permit(:email, :password, :password_confirmation, :employee_profile_attributes => [:first_name, :last_name])
+        u.permit(:email, :password, :password_confirmation, :employee_profile_attributes => [:first_name, :last_name, :profession_id])
       }
     columns = %i[email password password_confirmation]
     devise_parameter_sanitizer.permit(:account_update, keys: columns)   
