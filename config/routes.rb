@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :job_applications
+  resources :job_applications do
+  patch '/accept', to: 'job_applications#accept'
+  patch '/reject', to: 'job_applications#reject'
+  end
+
   resources :employee_profiles
   resources :employer_profiles
   

@@ -1,5 +1,5 @@
 class JobApplicationsController < ApplicationController
-  before_action :find_job_application, only: [:show, :create, :edit, :update, :destroy]
+  before_action :find_job_application, only: %i[show create edit update destroy accept reject]
   before_action :check_user
 
   def index
@@ -26,6 +26,16 @@ class JobApplicationsController < ApplicationController
     end
   end
 
+  def accept
+    @job_application.update_attributes(status: 0)
+    redirect_to root_path, notice: "Application Approved"
+  end
+
+  def reject
+    @job_application.update_attributes(status: 1)
+    redirect_to root_path, notice: "Application Rejected"
+  end
+
   def destroy
     @job_application = JobApplication.find(params[:id])
     @job_application.destroy
@@ -36,11 +46,10 @@ class JobApplicationsController < ApplicationController
 
   def job_applications_params
     params.permit(:status, :job_posting_id, :employee_id, :employer_id)
-    # .merge(employee_id: current_employee.id)
   end
 
   def find_job_application
-    @job_application = JobApplication.find(params[:id])
+    @job_application = JobApplication.find(params[:id] || params[:job_application_id])
   end
 
 end
