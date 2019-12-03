@@ -10,8 +10,8 @@ module JobPostings
         redirect_to root_path, notice: "You can't apply more than once"
       else 
         @job_application.save
-        # EmployerMailer.job_application_email(@job_posting.employer, @job_application).deliver
-        redirect_to @job_posting, notice: 'Job Application was successful.'
+        redirect_to root_path, notice: 'Job Application was successful.'
+
       end
     end
 
