@@ -16,6 +16,8 @@ module JobPostings
     end
 
     def show
+      @job_posting = JobPosting.find(params[:job_posting_id])
+      @job_application = JobApplication.find(params[:id])
     end
 
     def index
@@ -26,7 +28,7 @@ module JobPostings
     end
 
     def reject
-      @job_application = @job_application.update_attributes(params[status: 1])
+      @job_application.update_attributes(status: 1)
     end
 
     # Change status of job_application
@@ -53,7 +55,7 @@ module JobPostings
     private
 
     def job_applications_params
-      params.permit(:status, :job_posting_id, :employee_id, :employer_id)
+      params.permit(:status, :id, :job_posting_id, :employee_id, :employer_id)
       # .merge(employee_id: current_employee.id)
     end  
 
