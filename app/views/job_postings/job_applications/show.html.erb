@@ -1,0 +1,7 @@
+<% if current_employer %> 
+<%# <% render 'views/employee_profiles/show'%> 
+  <%= form_with(model: JobApplication, url: job_posting_job_application_path(@job_posting, @job_application), local: true) do |form| %>
+    <%= form.submit 'Accept Application', method: :accept, data: {confirm: 'Please confirm your application by clicking OK:'} %>
+    <%= form.submit 'Reject Application', method: :reject, data: {confirm: 'Please confirm your application by clicking OK:'} %>
+  <% end %>
+<% end %> 
