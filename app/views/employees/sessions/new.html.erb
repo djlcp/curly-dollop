@@ -26,9 +26,10 @@
 			</div>
 <% end %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-			
+	<% resource.build_employee_profile %>
+ 	<%= form_for(resource, :as => resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
       <div class="sign-up-htm">
 				<div class="group">
 					<label for="pass" class="label">Email Address</label>
@@ -45,11 +46,22 @@
 					<label for="pass" class="label">Repeat Password</label>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input' %>          
 				</div>
+				<div>
+
+
+    		<%= f.fields_for :employee_profile do |employee_profile_form| %>
+
+        <div class="group">
+					<label for="pass" class="label">Profession</label>					
+        	<%= employee_profile_form.collection_select :profession_id, Profession.all, :id, :name, {prompt: "Choose a profession" }, class: 'input' %><br />
+        </div>
 				<div class="group">
           <%= f.submit "Sign up", class: 'button' %>
 				</div>
 			</div>
-		</div>
+	<% end %>
+	
+	</div>
 	</div>
 </div>
 <% end %>
