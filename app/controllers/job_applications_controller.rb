@@ -4,12 +4,6 @@ class JobApplicationsController < ApplicationController
 
   def index
     @job_applications = JobApplication.all
-
-    # @job_applications = if current_employee
-    #   job_applications.current_employee
-    #                     elsif current_employer
-    #                       JobApplication.all
-    #                     end
   end
 
   def new
@@ -17,30 +11,25 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
-    # @employee_profile = EmployeeProfile.last.profession_id
-    @job_applications = JobApplication.find(params[:id])
+    @job_application = JobApplication.find(params[:id])
     @job_posting = JobPosting.all
-
-    # redirect_to job_posting_job_applications_path
-    # @job_applications = @job_posting_job_applications.find(employee: current_employee, status: :applied)
   end
 
-
   def update
-    @job_applications = JobApplication.find(params[:id])
-    @job_applications.undiscard
-      redirect_to job_applications_path, notice: "Job Application Undiscarded"
-    if @job_applications.update_attributes(job_applications_params)
-      redirect_to job_applications_path
+    @job_application = JobApplication.find(params[:id])
+    @job_application.undiscard
+      redirect_to job_applications_path, notice: 'Job Application Undiscarded'
+    if @job_application.update_attributes(job_applications_params)
+      redirect_to root_path
     else
       render :edit
     end
   end
 
   def destroy
-    @job_applications = JobApplication.find(params[:id])
-    @job_applications.destroy
-    redirect_to root_path data: "Job Application Removed"
+    @job_application = JobApplication.find(params[:id])
+    @job_application.destroy
+    redirect_to root_path, notice: 'Job Application Removed'
   end
 
   private
@@ -53,4 +42,5 @@ class JobApplicationsController < ApplicationController
   def find_job_application
     @job_application = JobApplication.find(params[:id])
   end
+
 end
