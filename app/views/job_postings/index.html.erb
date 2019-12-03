@@ -1,3 +1,11 @@
+<% if employer_signed_in? %>
+    <%= render 'layouts/navbar/employer'%>
+<% elsif employee_signed_in? %>
+    <%= render 'layouts/navbar/employee'%>
+<% else %>
+    <%= render 'layouts/navbar/main_nav'%>
+<% end %>
+<br>
 <% if current_employee %>
   <% current_employee.employee_profile.profession.job_postings.each do |job| %>
   <div class='container'>
@@ -13,3 +21,4 @@
     </div>
   <% end %>
 <% end %>
+

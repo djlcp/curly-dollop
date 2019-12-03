@@ -1,33 +1,55 @@
-<div class='jumbotron text-center'>
-<h2>Log in</h2>
-<br>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    
-  <div class='form-row justify-content-center'>  
-    <div class="form-group col-md-2">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
-    </div>
-  </div>
 
-  <div class='form-row justify-content-center'>
-    <div class="form-group col-md-2">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password", class: 'form-control' %>
-    </div>
-  </div>
+<div class="login-wrap">
+	<div class="login-html">
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+		<div class="login-form">
+			<div class="sign-in-htm">
+				<div class="group">
+					<label for="user" class="label">Email Address</label>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input' %>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+          <%= f.password_field :password, autocomplete: "current-password", class: 'input' %>
+				</div>
+				<div class="group">
+          <%= f.submit "Log in", class: 'button' %>
+				</div>
+				<div class="hr"></div>
+				<div class="foot-lnk">
+          <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+            <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+          <% end %>
+				</div>
+			</div>
+<% end %>
 
-    <% if devise_mapping.rememberable? %>
-      <div class="form-check">
-        <%= f.check_box :remember_me, class: 'form-check-input' %>
-        <%= f.label :remember_me %>
-      </div>
-    <% end %>
-
-    <div class="btn">
-      <%= f.submit "Log in", class: 'btn btn-primary' %>
-    </div>
-  <% end %>
-<br>
-  <%= render "employees/shared/links" %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+			
+      <div class="sign-up-htm">
+				<div class="group">
+					<label for="pass" class="label">Email Address</label>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'input' %>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Password</label>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", class: 'input' %>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Repeat Password</label>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'input' %>          
+				</div>
+				<div class="group">
+          <%= f.submit "Sign up", class: 'button' %>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+<% end %>

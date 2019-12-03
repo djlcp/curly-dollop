@@ -1,4 +1,12 @@
-<h1>New Employer Profile</h1>
+<% if employer_signed_in? %>
+    <%= render 'layouts/navbar/employer'%>
+<% elsif employee_signed_in? %>
+    <%= render 'layouts/navbar/employee'%>
+<% else %>
+    <%= render 'layouts/navbar/main_nav'%>
+<% end %>
+
+<h1>New Profile</h1>
 
 <%= render 'form', employer_profile: @employer_profile %>
 
