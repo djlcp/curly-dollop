@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :profiles
   devise_for :employers, path: 'employers', controllers: {sessions: 'employers/sessions'}
   # eg. http://localhost:3000/employers/sign_in
   devise_for :employees, path: 'employees', controllers: {sessions: 'employees/sessions'}
@@ -11,8 +10,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :employee_profiles do
+    resources :comments
+  end
+
   resources :job_applications
-  resources :employee_profiles
   resources :employer_profiles
   
   authenticated :employee do
