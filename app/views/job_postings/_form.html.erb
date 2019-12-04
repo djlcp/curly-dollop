@@ -21,12 +21,12 @@
 
   <div>
     <%= form.label :start_time %>
-    <%= form.text_field :start_time %>
+    <%= form.text_field :start_time, class: 'datepicker' %>
   </div>
 
  <div>
     <%= form.label :end_time %>
-    <%= form.text_field :end_time %>
+    <%= form.text_field :end_time, class: 'datepicker' %>
   </div>
 
  <div>
@@ -37,21 +37,7 @@
 
 <script>
 $(function() {
-  $('input[name="job_posting[start_time]"]').daterangepicker({
-    singleDatePicker: true,
-    timePicker: true,
-    startDate: moment().startOf('hour'),
-    endDate: moment().startOf('hour').add(32, 'hour'),
-    locale: {
-      format: 'M/DD hh:mm A'
-    }
-  });
-});
-</script>
-
-<script>
-$(function() {
-  $('input[name="job_posting[end_time]"]').daterangepicker({
+  $('.datepicker').daterangepicker({
     singleDatePicker: true,
     timePicker: true,
     startDate: moment().startOf('hour'),
