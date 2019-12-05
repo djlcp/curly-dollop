@@ -21,9 +21,12 @@
     <%= render 'layouts/navbar' %>
     <%= flash.alert %>
     <%= flash.notice %>
-    <div id="page-content">
-    <%= yield %>
+    <div class="content-wrap" id="page-content">
+      <div class="content-main">
+        <%= yield %>
+      </div>
     </div>
+    
   </body>
   
   <%= render "layouts/footer" %>
