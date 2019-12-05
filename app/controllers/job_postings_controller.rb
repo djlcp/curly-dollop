@@ -37,8 +37,14 @@ class JobPostingsController < ApplicationController
 
   def destroy
     @job_posting = JobPosting.find(params[:id])
-    @job_posting.destroy
-    redirect_to root_path
+    @job_posting.discard
+    redirect_to root_path, notice: 'Job Posting Discarded'
+  end
+
+  def undiscard
+    @job_application = JobApplication.find(params[:id])
+    @job_application.undiscard
+    redirect_to root_path, notice: 'Job Application Undiscarded'
   end
 
   private
