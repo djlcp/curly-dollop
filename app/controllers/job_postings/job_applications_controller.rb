@@ -37,7 +37,7 @@ module JobPostings
     end
 
     def already_applied?
-      @job_application = JobApplication.where(employee_id: current_employee.id, job_posting_id:
+      JobApplication.where(employee_id: current_employee.id, job_posting_id:
       params[:job_posting_id]).exists?
     end
 

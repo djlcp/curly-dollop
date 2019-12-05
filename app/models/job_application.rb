@@ -3,8 +3,8 @@ class JobApplication < ApplicationRecord
     belongs_to :employee
 
     include Discard::Model
-    # default_scope -> { kept }
-    # scope :kept, -> { undiscarded.joins(:job_posting).merge(JobPosting.kept) }
+    default_scope -> { kept }
+    scope :kept, -> { undiscarded.joins(:job_posting).merge(JobPosting.kept) }
 
     enum status: { accepted: 0, rejected: 1, applied: 2 }
 
