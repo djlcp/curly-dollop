@@ -27,6 +27,6 @@ Rails.application.routes.draw do
     root 'job_postings#index', as: :employers
   end
   
-  root 'landing_pages#index'
+  root 'landing_pages#home'
 
 end
