@@ -1,48 +1,66 @@
-<p>
-  <strong>Profession:</strong>
-  <%= @job_posting.profession.name %>
-</p>
+<div class= 'form-row justify-content-center text-center'>
+  <div class='form-group col-md-2'>
+    <strong>Profession:</strong><br>
+    <%= @job_posting.profession.name %>
+  </div>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @job_posting.title %>
-</p>
+<div class= 'form-row justify-content-center text-center'>
+  <div class='form-group col-md-2'>
+    <strong>Title:</strong><br>
+    <%= @job_posting.title %>
+  </div>
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @job_posting.content %>
-</p>
+<div class= 'form-row justify-content-center text-center'>
+  <div class='form-group col-md-2'>
+    <strong>Content:</strong><br>
+    <%= @job_posting.content %>
+  </div>
+</div>
 
-<p>
-  <strong>Start Time:</strong>
-  <%= @job_posting.start_time.strftime("%d %b %Y at %H:%m") %>
-  <br>
-  <strong>End Time:</strong>
-  <%= @job_posting.end_time.strftime("%d %b %Y at %H:%m")%>
-</p>
+<div class= 'form-row justify-content-center text-center'>
+  <div class='form-group col-md-2'>
+      <strong>Start Time:</strong>
+      <%= @job_posting.start_time.strftime("%d %b %Y at %H:%m") %>
+      <br>
+      <strong>End Time:</strong>
+      <%= @job_posting.end_time.strftime("%d %b %Y at %H:%m")%>
+  </div>
+</div>
 
-<p>
-  <strong>Hourly Rate:</strong>
-  <%= @job_posting.hourly_rate %>
-</p>
+<div class= 'form-row justify-content-center text-center'>
+  <div class='form-group col-md-2'>
+    <strong>Hourly Rate:</strong><br>
+    <%= @job_posting.hourly_rate %>
+  </div>
+</div>
 
-<p> <%# section missing code to link employee names to respective profiles %>
-<% if current_employer %>
-  <strong> Pending Applications: </strong> <br>
-  <% @job_posting.job_applications.each do |job_application| %>
-    <%= link_to job_application.employee.employee_profile.full_name, job_posting_job_application_path(@job_posting, job_application) %> <br>
-  <% end %>
-<% end %>
-</p>
+<div class= 'form-row justify-content-center text-center'>
+  <div class='form-group col-md-2'>
+    <% if current_employer %>
+          <strong> Pending Applications: </strong> <br>
+          <% @job_posting.job_applications.each do |job_application| %>
+          <%= link_to job_application.employee.employee_profile.full_name, job_posting_job_application_path(@job_posting, job_application) %> <br>
+          <% end %>
+    <% end %>
+    </div>
+  </div>
 
-<% if current_employer %>
-  <%= link_to 'Delete',[@job_posting], method: :delete %>
-<% end %>
+<div class= 'form-row justify-content-center text-center'>
+  <div class='form-group col-md-2'>
+    <% if current_employer %>
+      <%= link_to 'Delete',[@job_posting], method: :delete %>
+    <% end %>
+  </div>
+</div>
 
-<p>
-<% if current_employee %>
-  <%= form_with(model: JobApplication.new, url: job_posting_job_applications_path(@job_posting), local: true) do |form| %>
-    <%= form.submit 'Apply', data: {confirm: 'Please confirm your application by clicking OK:'} %>
-  <% end %> 
-<% end %>
-</p>
+<div class= 'form-row justify-content-center text-center'>
+  <div class='form-group col-md-2'>
+    <% if current_employee %>
+      <%= form_with(model: JobApplication.new, url: job_posting_job_applications_path(@job_posting), local: true) do |form| %>
+        <%= form.submit 'Apply', data: {confirm: 'Please confirm your application by clicking OK:'} %>
+      <% end %> 
+    <% end %>
+  </div>
+</div>
