@@ -2,7 +2,6 @@ class JobPostingsController < ApplicationController
   before_action :find_job_posting, only: [:show, :edit, :update, :destroy]
   
   def index
-    # @job_postings = JobPosting.all
     @job_postings = if current_employer
                       current_employer.job_postings
                     elsif current_employee
@@ -42,8 +41,8 @@ class JobPostingsController < ApplicationController
   end
 
   def undiscard
-    @job_application = JobApplication.find(params[:id])
-    @job_application.undiscard
+    @job_posting = JobPosting.find(params[:id])
+    @job_posting.undiscard
     redirect_to root_path, notice: 'Job Application Undiscarded'
   end
 

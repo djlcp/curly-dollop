@@ -3,11 +3,7 @@ class JobApplicationsController < ApplicationController
   before_action :check_user
 
   def index
-    @job_applications = JobApplication.all
-  end
-
-  def new
-    @job_application = JobApplication.new
+    @job_application = JobApplication.all
   end
 
   def show

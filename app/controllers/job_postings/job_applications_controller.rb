@@ -1,13 +1,12 @@
 module JobPostings
   class JobApplicationsController < ApplicationController
     before_action :set_job_posting
-    before_action :set_job_application, except: :create
+    before_action :set_job_application, except: [:create]
     before_action :check_user
 
     def create
       @job_application = @job_posting.job_applications.new(employee: current_employee, status: 2)
-      if
-        already_applied?
+      if already_applied?
         redirect_to root_path, notice: "You can't apply more than once"
       else 
         @job_application.save
