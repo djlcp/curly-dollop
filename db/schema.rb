@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 2019_12_05_140930) do
     t.integer "rating"
     t.text "content"
   end
-
+  
   create_table "job_applications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "job_posting_id"
     t.integer "employee_id"
