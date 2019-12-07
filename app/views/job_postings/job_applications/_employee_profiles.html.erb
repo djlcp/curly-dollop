@@ -9,7 +9,7 @@
         <% end %>
 
         <div class="card__body">
-          <h5 class="card__title">First name:</h5>
+          <h5 class="card__title">Name:</h5>
           <p class="card__content">
             <%= @job_application.employee.employee_profile.full_name %> 
           </p>
@@ -32,8 +32,9 @@
       </div>
 
         <footer class="card__footer">
-          <%= link_to 'Accept Application', job_application_accept_path(@job_application), method: :patch, :class => "card__accept__button" %> |
-          <%= link_to 'Reject Application', job_application_reject_path(@job_application), method: :patch, :class => "card__reject__button" %>
+          <%= link_to 'Accept Application', job_application_accept_path(@job_application), method: :patch, class: 'button button--success' %>
+          <span class="vertical-divider"></span>
+          <%= link_to 'Reject Application', job_application_reject_path(@job_application), method: :patch, class: 'button button--danger' %>
         </footer>
       <% end %>
   </article>

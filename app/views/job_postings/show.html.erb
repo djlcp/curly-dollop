@@ -10,6 +10,11 @@
           </span>
         </div>
       </div>
+        <p>
+        <% if current_employee %>
+          <%= @job_posting.employer.employer_profile.business_name %>
+        <%end %>
+        </p>
       <hr>
       <h5>Content</h5>
       <p>
@@ -28,7 +33,7 @@
         </div>
         <div>
             <span class="vertical-divider"></span>
-          </div>
+        </div>
         <div>
           <span><strong>Hourly Rate: </strong><%= @job_posting.hourly_rate %></span>
         </div>
