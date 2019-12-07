@@ -1,6 +1,4 @@
-<strong>Job Application Page</strong>
-
-<p>Manage Your Applications</p>
+<h2>Manage Your Applications</h2><br>
 <% @current_employee.job_applications.each do |post|%>
   <div class="section-panel">
     <div class="section-panel__inner">
@@ -9,9 +7,7 @@
             <%= link_to post.job_posting.title, job_posting_url(post.job_posting) %>
           </h2>
           <div>
-            <span class="chip">
-              <%= post.job_posting.profession.name %>
-            </span>
+            <span class="chip"><%= post.job_posting.profession.name %></span>
           </div>
         </div>
           <p>
@@ -34,8 +30,8 @@
             <span><strong>End: </strong><%= post.job_posting.end_time.strftime("%d %b %Y at %H:%m")%></span>
           </div>
           <div>
-              <span class="vertical-divider"></span>
-            </div>
+            <span class="vertical-divider"></span>
+          </div>
           <div>
             <span><strong>Hourly Rate: </strong><%= post.job_posting.hourly_rate %></span>
           </div>

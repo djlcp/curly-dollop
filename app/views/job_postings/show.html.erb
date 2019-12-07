@@ -5,15 +5,13 @@
           <%= @job_posting.title %>
         </h2>
         <div>
-          <span class="chip">
-            <%= @job_posting.profession.name %>
-          </span>
+          <span class="chip"><%= @job_posting.profession.name %></span>
         </div>
       </div>
         <p>
         <% if current_employee %>
           <%= @job_posting.employer.employer_profile.business_name %>
-        <%end %>
+        <% end %>
         </p>
       <hr>
       <h5>Content</h5>
@@ -32,7 +30,7 @@
           <span><strong>End: </strong><%= @job_posting.end_time.strftime("%d %b %Y at %H:%m")%></span>
         </div>
         <div>
-            <span class="vertical-divider"></span>
+          <span class="vertical-divider"></span>
         </div>
         <div>
           <span><strong>Hourly Rate: </strong><%= @job_posting.hourly_rate %></span>

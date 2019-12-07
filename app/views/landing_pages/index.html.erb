@@ -1,25 +1,20 @@
 <% @job_postings.each do |job| %>
+  <%# <% if job.start_time > Time.current%>
     <div class="section-panel">
       <div class="section-panel__inner">
         <div class="flex flex--align-items flex--justify-between">
-          <%# <% if job.start_time > Time.current%>
           <h5><%= link_to job.title, job %></h5>
           <div>
-            <span class="chip">
-              <%= job.profession.name %>
-            </span>
+            <span class="chip"><%= job.profession.name %></span>
           </div>
-          <%# <% end %>
         </div>
-          <div class="blurry-text">
-          <%= job.employer.employer_profile.business_name %>
-          </div>
+        <div class="blurry-text">
+        <%= job.employer.employer_profile.business_name %>
+        </div>
         <hr>
         <div>
           <h5>Content</h5>
-          <p>
-            Please log in or sign up to see more information.
-          </p>
+          <p>Please log in or sign up to see more information.</p>
         </div>
         <hr>
         <div class="flex flex--gutters">
@@ -43,4 +38,5 @@
       </div>
     </div>
     <br>
+    <%# <% end %>
   <% end %>
