@@ -20,6 +20,7 @@ module JobPostings
     end
 
     def index
+      @job_application.order
     end
 
     private
@@ -39,6 +40,10 @@ module JobPostings
     def already_applied?
       JobApplication.where(employee_id: current_employee.id, job_posting_id:
       params[:job_posting_id]).exists?
+    end
+
+    def order
+      JobApplication.where(created_at: 1.month.ago.to_date..Date.current)
     end
 
   end

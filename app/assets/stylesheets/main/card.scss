@@ -12,7 +12,6 @@ body {
 .card-container {
   display: flex;
   max-width: 1200px;
-  margin: 5% auto;
 }
 
 .card {
@@ -25,12 +24,20 @@ body {
 
 .card__image {
   max-width: 40%;
+  max-height: 40%;
+  // border-radius: 50%;
 }
+
+.card__header{
+  padding: 20px;
+  padding-bottom: 10px;
+}
+
 .card__body {
   flex-direction: column;
   padding: 20px;
+  padding-top: 10px;
   float: left;
-  padding-top: 30px;
 }
 .card__title {
   font-size: 15px;
