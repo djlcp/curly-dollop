@@ -7,7 +7,7 @@ class JobApplicationsController < ApplicationController
   end
 
   def show
-    @job_application = JobApplication.find(params[:id])
+    @job_application = JobApplication.find(params[:id]).order("updated_at desc")  
     @job_posting = JobPosting.all
   end
 
@@ -52,6 +52,10 @@ class JobApplicationsController < ApplicationController
 
   def find_job_application
     @job_application = JobApplication.find(params[:id] || params[:job_application_id])
+  end
+
+  def order
+    JobApplication.where(created_at: 1.month.ago.to_date..Date.current).order("updated_at desc")
   end
 
 end
