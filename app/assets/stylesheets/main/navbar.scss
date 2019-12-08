@@ -1,3 +1,17 @@
-.navbar {
-  color: black;
+img {
+  border-radius: 5px;
+}
+
+img:hover{
+    transform: scale(1.1);
+}
+
+//navbar color
+.bg-light{
+  margin-top: 30px;
+  background-color: white !important;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light{
+  margin-top: 8px;
 }
