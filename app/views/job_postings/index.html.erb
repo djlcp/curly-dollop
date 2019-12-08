@@ -1,4 +1,4 @@
-<body>
+
   <% if current_employee %>
     <% current_employee.employee_profile.profession.job_postings.each do |job| %>
       <%# <% if job.start_time > Time.current %>
@@ -6,7 +6,7 @@
           <div class='container'>
             <%= link_to job.title, job %>
             <%= job.employer.employer_profile.business_name %>
-          <div>
+          </div>
         </div>
       <%# <% end %>
     <% end %>
@@ -16,9 +16,8 @@
           <div class='container'>
             <%= link_to job.title, job %>
             <%= job.employer.employer_profile.business_name %>
-          <div>
+          </div>
         </div>
     <% end %>
   <% end %>
-</body>
 
