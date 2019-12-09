@@ -10,9 +10,17 @@ img:hover{
 //navbar color
 .bg-light{
   margin-top: 30px;
-  background-color: white !important;
+  background-color: transparent !important;
 }
 
 nav.navbar.navbar-expand-lg.navbar-light.bg-light{
   margin-top: 8px;
+}
+
+a.nav-link{
+  color: white !important;
+}
+
+h2{
+  color: white !important;
 }
