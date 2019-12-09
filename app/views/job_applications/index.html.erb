@@ -1,0 +1,7 @@
+<% if employer_signed_in? %>
+    <%= render 'layouts/job_applications/employer'%>
+<% else employee_signed_in? %>
+    <%= render 'layouts/job_applications/employee'%>
+<% end %>
+
+
