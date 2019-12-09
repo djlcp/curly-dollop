@@ -34,9 +34,9 @@
       </div>
     <footer class="card__footer">
       <% if current_employee %>
-        <%= link_to 'Edit', edit_employee_profile_path(@employee_profile) %>
+        <%= link_to 'Edit', edit_employee_profile_path(@employee_profile), class: 'btn btn-primary' %>
         <span class="vertical-divider"></span>
-        <%= link_to 'Back', root_path %>
+        <%= link_to 'Back', root_path, class: 'btn btn-primary' %>
       <% end %>
     </footer>
     </div>
