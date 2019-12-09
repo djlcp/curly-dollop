@@ -1,5 +1,5 @@
 .content-wrap {
-  width: 100%; //causing issue with profile display
+  width: 100%; 
 
   @include breakpoint(small) {
     margin: 0 auto;

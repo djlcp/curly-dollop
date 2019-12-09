@@ -1,4 +1,4 @@
-<section class="card-container">
+<section class="card-container__profile">
   <article class="card">
     <div class="card__header">
       <%= form_with(model: employer_profile, local: true) do |form| %>
@@ -13,23 +13,25 @@
           </div>
         <% end %>
 
-        <div class="card__body">
+        <div class="card__body__profile">
         <br>
           <% if @employer_profile.avatar.attached? %>
-            <%= image_tag(@employer_profile.avatar, :class => "card__image__profile")  %>
+            <%= image_tag(@employer_profile.avatar, :class => "card__image__profile") %>
           <% else %>
             <%= image_tag('default.jpg', :class => "card__image__profile") %>
           <% end %>
         <br>
-          <div class="card__body">
+          <div class="card__body__profile">
             <h5 class="card__title">Business Picture:</h5>
             <p class="card__content">
               <%= form.file_field :avatar, class: 'form-control-file' %>
             </p>
           </div>
         </div>
-        <span><div class="card__body"></div></span>
-        <div class="card__body">
+        <span>
+          <div class="card__body"></div>
+        </span>
+        <div class="card__body__profile">
         <br>
           <h5 class="card__title">First Name:</h5>
           <p class="card__content">
@@ -51,7 +53,7 @@
         <footer class="card__footer">
           <%= form.submit :Submit, class: 'btn btn-primary' %>
           <span class="vertical-divider"></span>
-          <%= link_to 'Back', :back, class: 'btn btn-primary'%>
+          <%= link_to 'Back', @employer_profile, class: 'btn btn-primary'%>
         </footer>
       <% end %>
     </div>

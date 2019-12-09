@@ -11,29 +11,19 @@ body {
 }
 
 .card {
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: 50px;
   margin-bottom: 50px;
   text-align: left;
   background: #fff;
   box-shadow: 0 6px 10px -5px rgba(0, 0, 0, 0.2);
-  // max-width: none;
   place-content: center;
-}
-
-.card-container__profile{
-  margin-left: 15%;
-  margin-right: 15%;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  max-height: 500px;
 }
 
 .card__image {
   max-width: 20%;
   max-height: 20%;
-  // border-radius: 50%;
 }
 
 .card__header{
@@ -41,7 +31,6 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  // column-count: 2;
 }
 
 .card__body {
@@ -51,22 +40,8 @@ body {
   place-content: center;
 }
 
-.card__body__profile {
-  flex-direction: column;
-  padding: 20px;
-  padding-top: 10px;
-  width: 30%;
-}
-
-.card__image__profile {
-  max-height: 200px;
-  max-width: 200px;
-  justify-content: center;
-  object-fit: cover;
-}
-
 .card__title {
-font-size: 15px;
+  font-size: 15px;
   font-weight: 700;
   line-height: 1.2;
   margin: 0;
@@ -87,3 +62,38 @@ font-size: 15px;
   cursor: pointer;
 }
 
+// Profile styling //
+
+.card-container__profile{
+  margin-left: 15%;
+  margin-right: 15%;
+  max-height: 500px;
+}
+
+.card-container__employee__profile{
+  margin-top: none;
+  max-height: 500px;
+}
+
+.card__header__profile{
+  columns: 2;
+  padding: 5% 5% 2% 5%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.card__body__profile {
+  width: 100%;
+  flex-direction: column;
+  padding: 20px;
+  padding-top: 10px;
+  max-height: none;
+}
+
+.card__image__profile {
+  max-height: 200px;
+  max-width: 200px;
+  justify-content: center;
+  object-fit: cover;
+}

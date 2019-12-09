@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <h2>Profile</h2>
-<section class="card-container">
+<section class="card-container__profile">
   <article class="card">
     <div class="card__header">
-          <div class="card__body">
-      <% if @employee_profile.avatar.attached? %>
-        <%= image_tag(@employee_profile.avatar, :class => "card__image__profile")  %>
-      <% else %>
-        <%= image_tag('default.jpg', :class => "card__image__profile") %>
-      <% end %>
-      </div>
       <div class="card__body">
+        <% if @employee_profile.avatar.attached? %>
+          <%= image_tag(@employee_profile.avatar, :class => "card__image__profile")  %>
+        <% else %>
+          <%= image_tag('default.jpg', :class => "card__image__profile") %>
+        <% end %>
+      </div>
+      <div class="card__body__profile">
         <h5 class="card__title">Profession:</h5>
         <p class="card__content">
           <%=  @employee_profile.profession.name %>
@@ -24,13 +24,14 @@
         <p class="card__content">
           <%= @employee_profile.date_of_birth %>
         </p>
-        <h5 class="card__title">Feedback/Bio:</h5>
-        <p class="card__content">
-          <%# <%= truncate(@job_application.employee.employee_profile.bio, length: 1500)%> %>
-        </p>
       </div>
     </div>
-
+      <div class="card__body">
+      <h5 class="card__title">Bio:</h5>
+        <p class="card__content">
+          <%= truncate(@employee_profile.bio, length: 1500) %>
+        </p>
+      </div>
     <footer class="card__footer">
       <% if current_employee %>
         <%= link_to 'Edit', edit_employee_profile_path(@employee_profile) %>
@@ -38,7 +39,7 @@
         <%= link_to 'Back', root_path %>
       <% end %>
     </footer>
-
+    </div>
   </article>
 </section>
 <br>
@@ -51,7 +52,6 @@
       <div class="flex flex--align-items flex--justify-between">
         <h2>
           <%= post.job_posting.title %>
-          <%# , job_posting_url(post.job_posting) %>
         </h2>
         <div>
           <span class="chip"><%= post.job_posting.profession.name %></span>

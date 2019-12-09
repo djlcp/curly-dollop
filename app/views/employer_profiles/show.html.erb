@@ -4,31 +4,28 @@
 <section class="card-container__profile">
   <article class="card">
     <div class="card__header">
-        
-        <div class="card__body">
-          <% if @employer_profile.avatar.attached? %>
-            <%= image_tag(@employer_profile.avatar, :class => "card__image__profile")  %>
-          <% else %>
-            <%= image_tag('default.jpg', :class => "card__image__profile") %>
-          <% end %>
-          </div>
-        <br>
-
-            <div class="card__body">
-              <h5 class="card__title">Name:</h5>
-              <p class="card__content">
-                <%= @employer_profile.full_name %>
-              </p>
-              <h5 class="card__title">Business Name:</h5>
-              <p class="card__content">
-                <%= @employer_profile.business_name %>
-              </p>
-            <h5 class="card__title">Job Postings Count:</h5>
-              <p class="card__content">
-                <%= link_to @employer_profile.employer.job_postings.count, job_postings_path %>
-              </p>
-            </div>
-
+      <div class="card__body">
+        <% if @employer_profile.avatar.attached? %>
+          <%= image_tag(@employer_profile.avatar, :class => "card__image__profile") %>
+        <% else %>
+          <%= image_tag('default.jpg', :class => "card__image__profile") %>
+        <% end %>
+        </div>
+      <br>
+      <div class="card__body">
+        <h5 class="card__title">Name:</h5>
+        <p class="card__content">
+          <%= @employer_profile.full_name %>
+        </p>
+        <h5 class="card__title">Business Name:</h5>
+        <p class="card__content">
+          <%= @employer_profile.business_name %>
+        </p>
+        <h5 class="card__title">Job Postings Count:</h5>
+        <p class="card__content">
+          <%= link_to @employer_profile.employer.job_postings.count, job_postings_path %>
+        </p>
+      </div>
     </div>
       <footer class="card__footer">
           <%= link_to 'Edit', edit_employer_profile_path(@employer_profile), class: 'btn btn-primary' %>
@@ -44,8 +41,8 @@
     <div class="section-panel__history_inner">
       <div class="flex flex--align-items flex--justify-between">
         <h2>
-          <%= post.title %>
-          <%# , job_posting_url(post.job_posting) %>
+          <%= link_to post.title, post %>
+          <%# %, job_posting_path(@job_posting) %> 
         </h2>
         <div>
           <span class="chip"><%= post.profession.name %></span>
