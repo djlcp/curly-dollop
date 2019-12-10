@@ -16,6 +16,10 @@ $grid-max-columns: 12 !default;
   justify-content: space-between;
 }
 
+.flex--justify-center {
+  justify-content: center;
+}
+
 .flex--align-items {
   align-items: center;
 }

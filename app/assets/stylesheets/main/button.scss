@@ -21,6 +21,31 @@
     border: 1px solid darken($theme-color, 10%);
     text-decoration: none;
   }
+  &:disabled {
+    opacity: 0.5;
+    cursor: disabled;
+  }
+}
+
+.button--secondary {
+  background-color: $secondary-color;
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+    border: 1px solid darken($secondary-color, 10%);
+  }
+}
+
+.button--tertiary {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  text-transform: none;
+  font-size: 0.9rem;
+  min-width: auto;
+  &:hover {
+    border: 1px solid darken(white, 10%);
+    color: darken(white, 10%);
+  }
 }
 
 .button--success {

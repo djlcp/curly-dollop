@@ -11,19 +11,23 @@
 @import './main/content_main.scss';
 @import './main/section_panel.scss';
 @import './main/flex';
+@import './main/text.scss';
 
 // Element styles
 @import './main/body_text.scss';
 @import './main/button.scss';
 @import './main/card.scss';
 @import './main/chip.scss';
+@import './main/form.scss';
 @import './main/headings.scss';
 
 // Component styles
 @import './main/employee_profiles.scss';
 
-// Trump styles
+// Trump 
+@import './main/horozontal_divider.scss';
 @import './main/vertical_divider.scss';
+@import './main/trumps.scss';
 
 //Navbar
 @import './main/navbar.scss';
