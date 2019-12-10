@@ -1,9 +1,7 @@
 <div class='text-center'>
   <h2>Employee Sign up</h2>
 
-<% resource.build_employee_profile %>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <% resource.build_employee_profile %>
 
   <div class= 'form-row justify-content-center'>
     <div class="form-group col-md-3">
@@ -28,8 +26,6 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
     </div>
   </div>
-
-  <%= f.fields_for :employee_profile do |employee_profile_form| %>
 
     <div class= 'form-row justify-content-center'>
       <div class="form-group col-md-3">
