@@ -29,9 +29,11 @@
 
 .button--secondary {
   background-color: $secondary-color;
+  border-color: $secondary-color;
   &:hover {
     background-color: darken($secondary-color, 10%);
     border: 1px solid darken($secondary-color, 10%);
+    color: white;
   }
 }
 
@@ -70,12 +72,19 @@
   }
 }
 
+.button--small {
+	width: 80%;
+	font-weight: 600;
+  padding: 8px 25px;
+  text-transform: none;
+  font-size: 0.9rem;
+}
+
 .form-button{
 	color: #fff !important;
 	border: 1px solid #EA4335;
 	background: #ea4335 !important;
 	width:80%;
 	font-weight: 600;
-	color:#fff;
 	padding: 8px 25px;
 }
