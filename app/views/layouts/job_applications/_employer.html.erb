@@ -1,6 +1,6 @@
 <h2>Manage Your Applications</h2><br>
 <% if current_employer %>
-  <% @current_employer.job_postings.each do |post|%>
+  <% @current_employer.job_postings.order("created_at DESC").each do |post|%>
     <div class="section-panel">
       <div class="section-panel__inner">
         <div class="flex flex--align-items flex--justify-between">

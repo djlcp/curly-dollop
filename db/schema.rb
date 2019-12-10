@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_05_235235) do
+ActiveRecord::Schema.define(version: 2019_12_08_104329) do
 
   create_table "action_text_rich_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "name", null: false
@@ -117,6 +117,8 @@ ActiveRecord::Schema.define(version: 2019_12_05_235235) do
     t.integer "employee_id"
     t.integer "status"
     t.datetime "discarded_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["discarded_at"], name: "index_job_applications_on_discarded_at"
   end
 
@@ -129,6 +131,7 @@ ActiveRecord::Schema.define(version: 2019_12_05_235235) do
     t.string "title"
     t.integer "profession_id"
     t.datetime "discarded_at"
+    t.datetime "created_at"
     t.index ["discarded_at"], name: "index_job_postings_on_discarded_at"
   end
 

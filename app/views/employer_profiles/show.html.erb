@@ -1,38 +1,58 @@
 <p id="notice"><%= notice %></p>
 
-<div class= 'form-row justify-content-center text-center'>
-  <% if @employer_profile.avatar.attached? %>
-    <%= image_tag(@employer_profile.avatar, :class => "style_image")  %>
-  <% else %>
-    <%= image_tag('default.jpg', :class => "style_image") %>
-  <% end %>
-</div>
+<h2>Profile</h2>
+<section class="card-container__profile">
+  <article class="card">
+    <div class="card__header">
+      <div class="card__body">
+        <% if @employer_profile.avatar.attached? %>
+          <%= image_tag(@employer_profile.avatar, :class => "card__image__profile") %>
+        <% else %>
+          <%= image_tag('default.jpg', :class => "card__image__profile") %>
+        <% end %>
+        </div>
+      <br>
+      <div class="card__body">
+        <h5 class="card__title">Name:</h5>
+        <p class="card__content">
+          <%= @employer_profile.full_name %>
+        </p>
+        <h5 class="card__title">Business Name:</h5>
+        <p class="card__content">
+          <%= @employer_profile.business_name %>
+        </p>
+        <h5 class="card__title">Job Postings Count:</h5>
+        <p class="card__content">
+          <%= link_to @employer_profile.employer.job_postings.count, job_postings_path %>
+        </p>
+      </div>
+    </div>
+      <footer class="card__footer">
+          <%= link_to 'Edit', edit_employer_profile_path(@employer_profile), class: 'btn btn-primary' %>
+      </footer>
+  </article>
+</section>
 <br>
-<div class= 'form-row justify-content-center text-center'>
-  <div class='form-group col-md-2'>
-    <strong>First name:</strong>
-    <%= @employer_profile.first_name %>
+<h2>Past Applications</h2>
+<section>
+  <% if current_employer %>
+  <% @current_employer.job_postings.order("created_at DESC").each do |post|%>
+  <div class="section-panel__history">
+    <div class="section-panel__history_inner">
+      <div class="flex flex--align-items flex--justify-between">
+        <h2>
+          <%= link_to post.title, post %>
+          <%# %, job_posting_path(@job_posting) %> 
+        </h2>
+        <div>
+          <span class="chip"><%= post.profession.name %></span>
+        </div>
+      </div>
+      <%= post.employer.employer_profile.business_name %>
+      <hr>
+      <%= post.start_time.strftime("%d %b %Y") %>
+    </div>
   </div>
-</div>
-
-<div class= 'form-row justify-content-center text-center'>
-  <div class='form-group col-md-2'>
-    <strong>Last name:</strong>
-    <%= @employer_profile.last_name %>
-  </div>
-</div>
-
-<div class= 'form-row justify-content-center text-center'>
-  <div class='form-group col-md-2'>
-    <strong>Business name:</strong>
-    <%= @employer_profile.business_name %>
-  </div>
-</div>
-
-<div class= 'form-row justify-content-center text-center'>
-  <div class='form-group col-md-2'>
-    <%= link_to 'Edit', edit_employer_profile_path(@employer_profile), class: 'btn btn-primary' %>
-  </div>
-</div>
-
-<%#= link_to 'Back', root_path %>
+  <% end %>
+  <% end %>
+</section>

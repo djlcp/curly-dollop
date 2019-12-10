@@ -1,5 +1,5 @@
 <% if current_employee %>
-  <% current_employee.employee_profile.profession.job_postings.each do |job| %>
+  <% current_employee.employee_profile.profession.job_postings.order("created_at DESC").each do |job| %>
   <%# <% if job.start_time > Time.current%>
   <div class="section-panel">
     <div class="section-panel__inner">
@@ -35,14 +35,13 @@
           <span><strong>Hourly Rate: </strong><%= job.hourly_rate %></span>
         </div>
       </div>  
-      <hr>
     </div>
   </div>
   <br>
   <%# <% end %>
   <% end %>
 <% else %>
-  <% @job_postings.each do |job| %>
+  <% @job_postings.order("created_at DESC").each do |job| %>
   <%# <% if job.start_time > Time.current %> 
     <div class="section-panel">
       <div class="section-panel__inner">
