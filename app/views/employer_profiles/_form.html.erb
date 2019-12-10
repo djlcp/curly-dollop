@@ -49,13 +49,14 @@
                 <%= form.text_field :business_name, class: 'form-control' %>
               </p>
             </div>
-          
           </div>
-          <footer class="card__footer">
+          <div class="col-xs-1 center-block" style="text-align:center;">
             <%= form.submit :Submit, class: 'button button--primary' %>
-            <span class="vertical-divider"></span>
-            <%= link_to 'Back', @employer_profile, class: 'button button--secondary'%>
-          </footer>
+          </div>
+          <br>
+          <div class="col-xs-1 center-block" style="text-align:center;">
+            <%= link_to 'Back', @employer_profile, class: 'button button--tertiary'%>
+          </div>
         </div>
       <% end %>
     </article>

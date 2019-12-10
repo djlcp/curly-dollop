@@ -25,11 +25,13 @@
         </p>
       </div>
     </div>
-      <footer class="card__footer">
+        <div class="col-xs-1 center-block" style="text-align:center;">
         <%= link_to 'Edit', edit_employer_profile_path(@employer_profile), class: 'button button--primary' %>
-          <span class="vertical-divider"></span>
-        <%= link_to 'Back', root_path, class: 'button button--secondary' %>
-      </footer>
+        </div>
+        <br>
+        <div class="col-xs-1 center-block" style="text-align:center;">
+        <%= link_to 'Back', root_path, class: 'button button--tertiary' %>
+      </div>
   </article>
 </section>
 <br>
