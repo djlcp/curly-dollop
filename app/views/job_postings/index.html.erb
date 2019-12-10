@@ -1,5 +1,5 @@
 <% if current_employee %>
-  <% current_employee.employee_profile.profession.job_postings.each do |job| %>
+  <% current_employee.employee_profile.profession.job_postings.order("created_at DESC").each do |job| %>
     <%= render 'job_postings/posting', job: job %>
   <% end %>
 <% else %>

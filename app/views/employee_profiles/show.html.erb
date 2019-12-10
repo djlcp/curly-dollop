@@ -30,13 +30,15 @@
           <%= truncate(@employee_profile.bio, length: 1500) %>
         </p>
       </div>
-    <footer class="card__footer">
-      <% if current_employee %>
-        <%= link_to 'Edit', edit_employee_profile_path(@employee_profile), class: 'button button--primary' %>
-        <span class="vertical-divider"></span>
-        <%= link_to 'Back', root_path, class: 'button button--secondary' %>
-      <% end %>
-    </footer>
+      <div class="col-xs-1 center-block" style="text-align:center;">
+        <% if current_employee %>
+          <%= link_to 'Edit', edit_employee_profile_path(@employee_profile), class: 'button button--primary' %>
+      </div>
+      <br>
+      <div class="col-xs-1 center-block" style="text-align:center;">
+          <%= link_to 'Back', root_path, class: 'button button--tertiary' %>
+        <% end %>
+      </div>
     </div>
   </article>
 </section>
