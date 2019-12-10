@@ -1,55 +1,43 @@
 <h2>Manage Your Applications</h2><br>
 <% if current_employer %>
-  <% @current_employer.job_postings.each do |post|%>
-    <div class="section-panel">
+  <% @current_employer.job_postings.order("created_at DESC").each do |post|%>
+    <div class="section-panel section-panel--theme">
       <div class="section-panel__inner">
         <div class="flex flex--align-items flex--justify-between">
-          <h2>
-            <%= link_to post.title, post %>
-          </h2>
-          <div>
-            <span class="chip"><%= post.profession.name %></span>
+          <h3 class="text-white" style="font-size: 2.75rem">
+            <%= link_to post, class: "text-white" do %>
+              <%= post.title %> @ <%= post.employer.employer_profile.business_name %>
+            <% end %>
+          </h3>
+          <div style="background: white; padding: 5px 15px 5px 30px;border-radius: 30px;">
+            <% if post.profession.name == 'Chef' %>
+              <%= link_to image_tag('kitchen_rgb', height: 40, alt: "Brand"), root_path, class: 'navbar-brand' %>
+            <% elsif post.profession.name == 'Catering Manager' %>
+              <%= link_to image_tag('catering_rgb', height: 40, alt: "Brand"), root_path, class: 'navbar-brand' %>
+            <% elsif post.profession.name == 'Bar Tender' %>
+              <%= link_to image_tag('bar_rgb', height: 40, alt: "Brand"), root_path, class: 'navbar-brand' %>
+            <% end %>
           </div>
         </div>
-        <hr>
-        <h5>Content</h5>
-        <p>
-          <%= post.content %>
-        </p>
-        <hr>
+        <hr class="horizontal-divider">
+        <div class="text-white"><%= simple_format(post.content) %></div>
+        <hr class="horizontal-divider">
         <div class="flex flex--gutters">
-          <div>
-            <span><strong>Start: </strong><%= post.start_time.strftime("%d %b %Y at %H:%m") %></span>
-          </div>
-          <div>
-            <span class="vertical-divider"></span>
-          </div>
-          <div>
-            <span><strong>End: </strong><%= post.end_time.strftime("%d %b %Y at %H:%m")%></span>
-          </div>
-          <div>
-            <span class="vertical-divider"></span>
-          </div>
-          <div>
-            <span><strong>Hourly Rate: </strong><%= post.hourly_rate %></span>
-          </div>
+          <div class="text-white"><strong>Start: </strong><%= post.start_time.strftime("%d %b %Y at %H:%m") %></div>
+          <div><span class="vertical-divider"></span></div>
+          <div class="text-white"><strong>End: </strong><%= post.end_time.strftime("%d %b %Y at %H:%m")%></div>
+          <div><span class="vertical-divider"></span></div>
+          <div class="text-white"><strong>Hourly Rate: </strong><%= post.hourly_rate %></div>
         </div>  
-        <hr>
-        <div class="flex flex--align-items justify-content-between">
-          <div>
-            <h5>Pending Applications: <%= link_to post.job_applications.count, post%></h5>
-          </div>
-          <div>
-            <span class="vertical-divider"></span>
-          </div>
+        <hr class="horizontal-divider">
+        <div class="flex">
           <div>
             <%= link_to 'Delete', post, method: :delete, data: {confirm: 'Are you sure?'}, class: 'button button--danger' %>
           </div>
         </div>
       </div>
     </div>
-  <br>
-    <% end %>
+    <br>
+    <br>
   <% end %>
-
-  
+<% end %>

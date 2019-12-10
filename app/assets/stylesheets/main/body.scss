@@ -8,5 +8,11 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   margin: 0;
-  background-color: $white-smoke !important;
+  background-color: black !important;
+  
+  background: url(wave2.png) no-repeat fixed transparent right;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }

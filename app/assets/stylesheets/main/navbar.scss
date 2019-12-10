@@ -1,3 +1,22 @@
-.navbar {
-  color: black;
+//logo styling
+img {
+  border-radius: 5px;
+}
+
+//navbar color
+.bg-light{
+  margin-top: 30px;
+  background-color: transparent !important;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light{
+  margin-top: 8px;
+}
+
+a.nav-link{
+  color: white !important;
+}
+
+h2{
+  color: white !important;
 }

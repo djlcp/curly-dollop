@@ -1,47 +1,118 @@
-<%= form_with(model: employer_profile, local: true) do |form| %>
-  <% if employer_profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(employer_profile.errors.count, "error") %> prohibited this employer_profile from being saved:</h2>
+<div class="flex flex--justify-center">
+  <div class="section-panel section-panel--theme" style="max-width: 560px">
+    <div class="section-panel__inner">
+      <div class='text-center'>
+        <h2 style="margin-bottom: 20px">Profile</h2>
 
-      <ul>
-        <% employer_profile.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+        <%= form_with(model: employer_profile, local: true) do |form| %>
+          <% if employer_profile.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(employer_profile.errors.count, "error") %> prohibited this employer_profile from being saved:</h2>
+
+              <ul>
+                <% employer_profile.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+        <div class= 'form-row justify-content-center text-center'>
+          <div class="form-group">
+            <%= form.label :first_name, class: 'form__label' %>
+            <%= form.text_field :first_name, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class= 'form-row justify-content-center text-center'>
+          <div class="form-group">
+            <%= form.label :last_name, class: 'form__label' %>
+            <%= form.text_field :last_name, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class= 'form-row justify-content-center text-center'>
+          <div class="form-group">
+            <%= form.label :business_name, class: 'form__label' %>
+            <%= form.text_field :business_name, class: 'form-control' %>
+          </div>
+        </div>
+
+        <div class= 'form-row justify-content-center text-center'>
+          <div class="form-group">
+            <%= form.label "Business Picture", class: 'form__label' %>
+            <%= form.file_field :avatar, class: 'form-control-file' %>
+          </div>
+        </div>
+
+        <div class= 'form-row justify-content-center text-center'>
+          <div class="form-group">
+            <%= form.submit :Submit, class: 'button button--secondary' %>
+          </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-
-<div class= 'form-row justify-content-center text-center'>
-  <div class="form-group col-md-2">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, class: 'form-control' %>
   </div>
 </div>
 
-<div class= 'form-row justify-content-center text-center'>
-  <div class="form-group col-md-2">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, class: 'form-control' %>
-  </div>
-</div>
+<!-- <section class="card-container__profile">
+  <article class="card">
+    <div class="card__header">
+      <%= form_with(model: employer_profile, local: true) do |form| %>
+        <% if employer_profile.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(employer_profile.errors.count, "error") %> prohibited this employer_profile from being saved:</h2>
+            <ul>
+              <% employer_profile.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
 
-<div class= 'form-row justify-content-center text-center'>
-  <div class="form-group col-md-2">
-    <%= form.label :business_name %>
-    <%= form.text_field :business_name, class: 'form-control' %>
-  </div>
-</div>
+        <div class="card__body__profile">
+        <br>
+          <% if @employer_profile.avatar.attached? %>
+            <%= image_tag(@employer_profile.avatar, :class => "card__image__profile") %>
+          <% else %>
+            <%= image_tag('default.jpg', :class => "card__image__profile") %>
+          <% end %>
+        <br>
+          <div class="card__body__profile">
+            <h5 class="card__title">Business Picture:</h5>
+            <p class="card__content">
+              <%= form.file_field :avatar, class: 'form-control-file' %>
+            </p>
+          </div>
+        </div>
+        <span>
+          <div class="card__body"></div>
+        </span>
+        <div class="card__body__profile">
+        <br>
+          <h5 class="card__title">First Name:</h5>
+          <p class="card__content">
+            <%= form.text_field :first_name, class: 'form-control' %>
+          </p>
 
-<div class= 'form-row justify-content-center text-center'>
-  <div class="form-group col-md-2">
-    <%= form.label "Business Picture" %>
-    <%= form.file_field :avatar, class: 'form-control-file' %>
-  </div>
-</div>
+          <h5 class="card__title">Last Name:</h5>
+          <p class="card__content">
+            <%= form.text_field :last_name, class: 'form-control' %>
+          </p>
 
-<div class= 'form-row justify-content-center text-center'>
-  <div class="form-group col-md-2">
-    <%= form.submit :Submit, class: 'btn btn-primary' %>
-  </div>
-</div>
-<% end %>
+          <h5 class="card__title">Business Name:</h5>
+          <p class="card__content">
+            <%= form.text_field :business_name, class: 'form-control' %>
+          </p>
+        </div>
+        
+        </div>
+        <footer class="card__footer">
+          <%= form.submit :Submit, class: 'btn btn-primary' %>
+          <span class="vertical-divider"></span>
+          <%= link_to 'Back', @employer_profile, class: 'btn btn-primary'%>
+        </footer>
+      <% end %>
+    </div>
+  </article>
+</section> -->
