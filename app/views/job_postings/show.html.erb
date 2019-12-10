@@ -40,7 +40,7 @@
   <br>
   <h1 class="subheading text-white" style="margin-bottom: 20px">Applicants</h1>
 
-  <% if current_employer && @job_posting.job_applications.blank? %>
+  <% if current_employer && @job_posting.job_applications.applied.blank? %>
     <div class="section-panel section-panel--theme">
       <div class="section-panel__inner">
         <h4 class="text-white">You do not have any applications yet.</h4>      
@@ -49,7 +49,7 @@
   <% end %>
 
   <div class="flex flex--gutters-2x">
-    <% @job_posting.job_applications.each do |job_application| %>
+    <% @job_posting.job_applications.applied.each do |job_application| %>
       <%= render 'applicant', application: job_application %>
     <% end %>
   </div>

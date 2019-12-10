@@ -97,3 +97,13 @@ body {
   justify-content: center;
   object-fit: cover;
 }
+
+.card--theme {
+  background-color: $theme-color !important;
+  .card__content {
+    color: white;
+  }
+  .card__title {
+    color: white;
+  }
+}
