@@ -97,3 +97,23 @@ body {
   justify-content: center;
   object-fit: cover;
 }
+
+.card__body__job_post {
+  display: flex;
+  padding: 20px;
+  padding-top: 10px;
+  place-content: center;
+}
+
+.card__title__job_post {
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+

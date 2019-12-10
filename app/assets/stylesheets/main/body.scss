@@ -11,7 +11,8 @@ body {
   background-color: black !important;
   opacity: .9;
   
-  background: url(wave2.png) no-repeat fixed transparent right;
+  background: url(wave2.png) repeat fixed transparent right;
+  background-position: 700px 0;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

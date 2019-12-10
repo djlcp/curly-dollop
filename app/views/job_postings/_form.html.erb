@@ -10,8 +10,8 @@
           </ul>
         </div>
         
-      <div class='jumbotron'>
-        Job Post
+      <div class="card__body">
+      <h3 class= 'form-row justify-content-center text-center'>New Job Posting</h3>
       </div>
 
       <div class="card__body">
@@ -32,35 +32,47 @@
         </p>
       </div>
 
-      <div class="card__body">
-        <h5 class="card__title">Start Time:</h5>
-        <p class="card__content">
-            <%= form.text_field :start_time, class: 'datepicker' %>
-        </p>
-      </div>
+        <div class="card__body">
+          <div class="form in-line mx-auto">
+            <h5 class="card__title__job_post">Start Time:</h5>
+            <h5 class="card__title__job_post">End Time:</h5>
+          </div>
+        </div>
 
-      <div class="card__body">
-        <h5 class="card__title">Start Time:</h5>
-        <p class="card__content">
-          <%= form.text_field :end_time, class: 'datepicker' %>
-        </p>
+      <div class="card__body__job_post">
+        <div class="row">
+          <div class="col-md-4">
+            <p class="card__content">
+                <%= form.text_field :start_time, class: 'form-control datepicker' %>
+            </p>
+          </div>
+   
+          <div class="col-md-4">
+              <p class="card__content">
+                <%= form.text_field :end_time, class: 'form-control datepicker' %>
+              </p>
+          </div>
       </div>
+      </div>
+      <%# </div> %>
 
-      <div class= 'form-row justify-content-center text-center'>
+      <%# <div class= 'form-row justify-content-center text-center'>
       
-      </div>
-        <br>
+      </div> %>
 
-      <div class= 'form-row justify-content-center text-center'>
-        <div class= 'form-group col-md-3'>
+      <div class="card__body">
+        <h5 class="card__title">Profession:</h5>
+        <p class="card__content">
           <%= form.collection_select :profession_id, Profession.all, :id, :name, {prompt: "Choose a profession" }, class: 'form-control' %>
-        </div>
+        </p>
       </div>
 
-      <div class= 'form-row justify-content-center text-center'>
-        <div class='form-group'>
-          <%= form.submit :Submit, class: 'btn btn-primary' %>
-        </div>
-      </div>
+
+  <footer class="card__footer">
+  <%= form.submit "Submit", class: 'btn btn-primary' %>
+      <span class="vertical-divider"></span>
+  <%= link_to 'Back', @employee_profile, class: 'btn btn-primary' %>
+  </footer>
+
 
       <% end %>
