@@ -1,46 +1,4 @@
-<div class="flex flex--justify-center">
-  <div class="section-panel section-panel--theme" style="min-width: 320px; max-width: 560px">
-    <div class="section-panel__inner">
-      <div class='text-center'>
-        <div style="margin-bottom: 20px">
-          <% if @employer_profile.avatar.attached? %>
-            <%= image_tag(@employer_profile.avatar, :class => "style_image")  %>
-          <% else %>
-            <%= image_tag('default.jpg', :class => "style_image") %>
-          <% end %>
-        </div>
-
-        <p class="text-white">
-          <strong>First name:</strong> <br>
-          <%= @employer_profile.first_name %>
-        </p>
-          
-        <p class="text-white">
-          <strong>Last name:</strong> <br>
-          <%= @employer_profile.last_name %>
-        </p>
-
-        <p class="text-white">
-          <strong>Business name:</strong> <br>
-          <%= @employer_profile.business_name %>
-        </p>
-
-        <div class="flex flex--gutters">
-          <% if current_employer %>
-            <div class="col-mc-1-1">
-              <%= link_to 'Edit', edit_employer_profile_path(@employer_profile), class: 'button button--tertiary' %>
-            </div>
-            <div class="col-mc-1-1">
-              <%= link_to 'Back', root_path, class: 'button button--tertiary' %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- <h2>Profile</h2>
+<h2>Profile</h2>
 <section class="card-container__profile">
   <article class="card">
     <div class="card__header">
@@ -68,31 +26,17 @@
       </div>
     </div>
       <footer class="card__footer">
-          <%= link_to 'Edit', edit_employer_profile_path(@employer_profile), class: 'btn btn-primary' %>
+        <%= link_to 'Edit', edit_employer_profile_path(@employer_profile), class: 'button button--primary' %>
       </footer>
   </article>
 </section>
 <br>
 <h2>Past Applications</h2>
+<br>
 <section>
   <% if current_employer %>
-  <% @current_employer.job_postings.order("created_at DESC").each do |post|%>
-  <div class="section-panel__history">
-    <div class="section-panel__history_inner">
-      <div class="flex flex--align-items flex--justify-between">
-        <h2>
-          <%= link_to post.title, post %>
-          <%# %, job_posting_path(@job_posting) %> 
-        </h2>
-        <div>
-          <span class="chip"><%= post.profession.name %></span>
-        </div>
-      </div>
-      <%= post.employer.employer_profile.business_name %>
-      <hr>
-      <%= post.start_time.strftime("%d %b %Y") %>
-    </div>
-  </div>
+    <% @current_employer.job_postings.order("created_at DESC").each do |post|%>
+      <%= render 'job_postings/posting', job: post %>
+    <% end %>
   <% end %>
-  <% end %>
-</section> -->
+</section>
