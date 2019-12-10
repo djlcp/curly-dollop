@@ -1,6 +1,6 @@
 <h2>Profile</h2>
 <section class="card-container__profile">
-  <article class="card">
+  <article>
     <div class="card__header">
       <div class="card__body">
         <% if @employer_profile.avatar.attached? %>
@@ -27,6 +27,8 @@
     </div>
       <footer class="card__footer">
         <%= link_to 'Edit', edit_employer_profile_path(@employer_profile), class: 'button button--primary' %>
+          <span class="vertical-divider"></span>
+        <%= link_to 'Back', root_path, class: 'button button--secondary' %>
       </footer>
   </article>
 </section>
