@@ -4,11 +4,11 @@
       <h3 style="font-size: 2.75rem"><%= link_to "#{job.title} @ #{job.employer.employer_profile.business_name}", job, class: 'text-white' %></h3>
       <div style="background: white; padding: 5px 15px 5px 30px;border-radius: 30px;">
         <% if job.profession.name == 'Chef' %>
-          <%= link_to image_tag('kitchen_rgb', height: 40, alt: "Brand"), root_path, class: 'navbar-brand' %>
+          <%= link_to image_tag('kitchen_rgb.svg', height: 40, alt: "Brand"), root_path, class: 'navbar-brand' %>
         <% elsif job.profession.name == 'Catering Manager' %>
-          <%= link_to image_tag('catering_rgb', height: 40, alt: "Brand"), root_path, class: 'navbar-brand' %>
+          <%= link_to image_tag('catering_rgb.svg', height: 40, alt: "Brand"), root_path, class: 'navbar-brand' %>
         <% elsif job.profession.name == 'Bar Tender' %>
-          <%= link_to image_tag('bar_rgb', height: 40, alt: "Brand"), root_path, class: 'navbar-brand' %>
+          <%= link_to image_tag('bar_rgb.svg', height: 40, alt: "Brand"), root_path, class: 'navbar-brand' %>
         <% end %>
       </div>
     </div>
