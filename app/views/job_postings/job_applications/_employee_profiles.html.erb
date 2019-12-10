@@ -1,4 +1,4 @@
-<section class="card-container">
+<section>
   <article class="card">
     <div class="card__header">
       <% if current_employer %>
@@ -23,13 +23,15 @@
           <p class="card__content">
             <%= @job_application.employee.employee_profile.profession.name %> 
           </p>
+        </div>
+      </div>
 
-          <h5 class="card__title">Feedback/Bio:</h5>
+        <div class="card__body">
+          <h5 class="card__title">Bio:</h5>
           <p class="card__content">
             <%= truncate(@job_application.employee.employee_profile.bio, length: 1500)%>
           </p>
         </div>
-      </div>
 
         <footer class="card__footer">
           <%= link_to 'Accept Application', job_application_accept_path(@job_application), method: :patch, class: 'button button--success' %>

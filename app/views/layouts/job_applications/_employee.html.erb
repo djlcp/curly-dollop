@@ -1,5 +1,5 @@
 <h2>Manage Your Applications</h2><br>
-<% @current_employee.job_applications.each do |post|%>
+<% @current_employee.job_applications.order("created_at DESC").each do |post|%>
   <div class="section-panel section-panel--theme">
     <div class="section-panel__inner">
       <div class="flex flex--align-items flex--justify-between">
