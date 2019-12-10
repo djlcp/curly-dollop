@@ -1,6 +1,6 @@
 <h2>Profile</h2>
 <section class="card-container__profile">
-  <article class="card">
+  <article>
     <div class="card__header">
       <div class="card__body">
         <% if @employee_profile.avatar.attached? %>
@@ -30,13 +30,15 @@
           <%= truncate(@employee_profile.bio, length: 1500) %>
         </p>
       </div>
-    <footer class="card__footer">
-      <% if current_employee %>
-        <%= link_to 'Edit', edit_employee_profile_path(@employee_profile), class: 'button button--praimry' %>
-        <span class="vertical-divider"></span>
-        <%= link_to 'Back', root_path, class: 'button button--secondary' %>
-      <% end %>
-    </footer>
+      <div class="col-xs-1 center-block" style="text-align:center;">
+        <% if current_employee %>
+          <%= link_to 'Edit', edit_employee_profile_path(@employee_profile), class: 'button button--primary' %>
+      </div>
+      <br>
+      <div class="col-xs-1 center-block" style="text-align:center;">
+          <%= link_to 'Back', root_path, class: 'button button--tertiary' %>
+        <% end %>
+      </div>
     </div>
   </article>
 </section>
@@ -45,21 +47,26 @@
 <section>
   <% if current_employee %>
   <% @current_employee.job_applications.order("created_at DESC").each do |post|%>
-  <div class="section-panel__history">
-    <div class="section-panel__history_inner">
-      <div class="flex flex--align-items flex--justify-between">
-        <h2>
-          <%= post.job_posting.title %>
-        </h2>
-        <div>
-          <span class="chip"><%= post.job_posting.profession.name %></span>
+   <div class="section-panel section-panel--theme">
+      <div class="section-panel__inner">
+        <div class="flex flex--align-items flex--justify-between">
+          <h3 style="font-size: 2.75rem"><%= link_to "#{post.job_posting.title}", post, class: 'text-white' %></h3>
+          <div style="background: white; padding: 5px 15px 5px 30px;border-radius: 30px;">
+            <% if post.job_posting.profession.name == 'Chef' %>
+              <%= link_to image_tag('kitchen_rgb.svg', height: 40, alt: "Brand"), root_path, class: 'navbar-brand' %>
+            <% elsif post.job_posting.profession.name == 'Catering Manager' %>
+              <%= link_to image_tag('catering_rgb.svg', height: 40, alt: "Brand"), root_path, class: 'navbar-brand' %>
+            <% elsif post.job_posting.profession.name == 'Bar Tender' %>
+              <%= link_to image_tag('bar_rgb.svg', height: 40, alt: "Brand"), root_path, class: 'navbar-brand' %>
+            <% end %>
+          </div>
         </div>
-      </div>
       <%= post.job_posting.employer.employer_profile.business_name %>
       <hr>
       <%= post.job_posting.start_time.strftime("%d %b %Y") %>
     </div>
   </div>
+  <br>
   <% end %>
   <% end %>
 </section>

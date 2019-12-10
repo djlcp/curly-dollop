@@ -1,6 +1,6 @@
 <h2>Available Jobs</h2><br>
 
-<% @job_postings.each do |job| %>
+<% @job_postings.order("created_at DESC").each do |job| %>
   <%# <% if job.start_time > Time.current%>
     <div class="section-panel section-panel--theme">
       <div class="section-panel__inner">
