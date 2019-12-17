@@ -89,3 +89,25 @@
 	font-weight: 600;
 	padding: 8px 25px;
 }
+
+//Choose file button
+
+label.btn.btn-default{
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  transition: 0.2s brandground-color ease;
+  background-color: $theme-color;
+  border: 1px solid $theme-color;
+  border-radius: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  &:hover {
+    background-color: darken($theme-color, 10%);
+    border: 1px solid darken($theme-color, 10%);
+    text-decoration: none;
+    color: white;
+  }
+}
