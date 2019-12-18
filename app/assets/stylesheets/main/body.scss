@@ -10,7 +10,7 @@ body {
   margin: 0;
   background-color: black !important;
   
-  background-image: url(asset_path('wave2.png'));
+  background: url(asset_path('wave2.png')) repeat fixed transparent right;
   // background: url(wave2.png) repeat fixed transparent right;
   background-position: 750px 0; 
   -webkit-background-size: cover;
