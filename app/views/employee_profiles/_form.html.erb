@@ -3,6 +3,7 @@
     <div>
       <%= form_with(model: employee_profile, local: true) do |form| %>
         <% if employee_profile.errors.any? %>
+          
           <div id="error_explanation">
             <h2><%= pluralize(employee_profile.errors.count, "error") %> prohibited this employee_profile from being saved:</h2>
             <ul>
@@ -11,8 +12,9 @@
               <% end %>
             </ul>
           </div>
+
         <% end %>
-        </div>
+
         <div class="card__header__profile">
           <div class="card__body">
             <br>
@@ -54,14 +56,16 @@
         </div>
   
         <div class="col-xs-1 center-block" style="text-align:center">
-          <%= form.submit 'Submit', class: 'button button--primary' %>
+          <%= form.submit :Submit, class: 'button button--primary' %>
         </div>
+
         <br>
+
         <div class="col-xs-1 center-block" style="text-align:center">
           <%= link_to 'Back', @employee_profile, class: 'button button--tertiary' %>
         </div>
-        <% end %>
-        </div>
-      </div>
+
+      <% end %>
+    </div>
   </article>
 </section>
